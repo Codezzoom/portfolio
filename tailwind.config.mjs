@@ -7,12 +7,16 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif']
+      },
       colors: {
-        colors: {
-          primary: "#1e40af",
-          text_primary: "#ffffff",
-          card_light: "#f3f4f6",
-        },
+        primary: "#1e40af",
+        text_primary: "#ffffff",
+        card_light: "#f3f4f6",
+        blue: '#232946',
+        pink: '#EEBBC3',
+        violet: '#B8C1EC',
       },
     },
   },

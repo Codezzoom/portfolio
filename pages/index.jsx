@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "@/utils/Themes";
 import { BrowserRouter as Router } from "react-router-dom";
-import styled from "styled-components";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Skills from "@/components/Skills";
@@ -11,27 +10,6 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
-
-const Body = styled.div`
-  background-color: ${({ theme }) => theme.bg};
-  width: 100%;
-  overflow-x: hidden;
-`;
-
-const Wrapper = styled.div`
-  background: linear-gradient(
-      38.73deg,
-      rgba(204, 0, 187, 0.15) 0%,
-      rgba(201, 32, 184, 0) 50%
-    ),
-    linear-gradient(
-      141.27deg,
-      rgba(0, 70, 209, 0) 50%,
-      rgba(0, 70, 209, 0.15) 100%
-    );
-  width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
-`;
 
 function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -48,22 +26,62 @@ function Home() {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router>
         <Navbar />
-        <Body>
-          <HeroSection />
-          <Wrapper>
-            <Skills />
-            <Experience />
-          </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          <Wrapper>
-            <Education />
-            <Contact />
-          </Wrapper>
+        <div
+          className={`${
+            darkMode ? "bg-gray-900" : "bg-white"
+          } w-full overflow-x-hidden`}
+        >
+          {/* Hero Section */}
+          <div id="#home">
+            <HeroSection />
+          </div>
+
+          {/* Skills and Experience */}
+          <div
+            className="w-full bg-gradient-to-r from-pink-100 via-blue-100 to-pink-50"
+            style={{
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
+            }}
+          >
+            {/* SKILLS */}
+            <div id="skills">
+              <Skills />
+            </div>
+
+            {/* EXPERIENCE */}
+            <div id="experience">
+              <Experience />
+            </div>
+          </div>
+
+          {/* PROJECTS */}
+          <div id="projects">
+            <Projects openModal={openModal} setOpenModal={setOpenModal} />
+          </div>
+
+          {/* Education and Contact */}
+          <div
+            className="w-full bg-gradient-to-r from-pink-100 via-blue-100 to-pink-50"
+            style={{
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
+            }}
+          >
+            <div id="education">
+              <Education />
+            </div>
+            <div id="contact">
+              <Contact />
+            </div>
+          </div>
+
+          {/* Footer */}
           <Footer />
+
+          {/* Project Details Modal */}
           {openModal.state && (
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
           )}
-        </Body>
+        </div>
       </Router>
     </ThemeProvider>
   );
