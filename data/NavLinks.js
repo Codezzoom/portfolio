@@ -19,10 +19,10 @@ const navLinks = [
         title: 'Education',
         href: '#education'
     },
-    // {
-    //     title: 'Contact',
-    //     href: '#contact'
-    // }
+    {
+        title: 'Contact',
+        href: '#contact'
+    }
 ];
 
 export default navLinks;

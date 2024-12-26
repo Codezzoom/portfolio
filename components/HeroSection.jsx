@@ -1,52 +1,101 @@
 import React from "react";
+import { motion } from "framer-motion";
 import HeroBgAnimation from "./HeroBGAnimation";
+import HeaderSmall from "./HeaderSmall";
+import Button from "./Button";
+import ParticlesContainer from "./ParticlesContainer";
+import { fadeIn } from "@/variants";
+import Avatar from "./Avatar";
+import SocialBar from "./SocialBar";
 
 const HeroSection = () => {
+  const config = {
+    type: "spring",
+    damping: 10,
+    stiffness: 80,
+  };
+
   return (
-    <div id="about" className="relative bg-gray-100">
+    <div className="relative h-full overflow-hidden">
+      {/* Background Explosion */}
       <div
-        className="relative flex justify-center items-center py-48 px-8 lg:px-12 z-10 
-        bg-blue clip-path-[polygon(0_0,_100%_0,_100%_100%,_70%_95%,_0_100%)]"
-      >
-        {/* Background */}
-        <div className="absolute inset-0 w-full h-full max-w-[1360px] mx-auto flex justify-end overflow-hidden">
-          <HeroBgAnimation />
-        </div>
+        className="absolute inset-0 bg-gradient-to-b from-[#131929] via-[#131929] to-[#131929] xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full mix-blend-color-dodge translate-z-0"
+        aria-hidden="true"
+      />
 
-        {/* Content */}
-        <div className="relative flex flex-col lg:flex-row justify-between items-center w-full max-w-[1100px]">
-          {/* Left Section */}
-          <div className="order-2 lg:order-1 w-full text-center lg:text-left mb-8 lg:mb-0">
-            <h1 className="font-bold text-5xl leading-tight text-gray-800 mb-4">
-              Hi, I am <br /> {""}
-            </h1>
-            <div className="flex items-center gap-3 font-semibold text-2xl text-gray-800 mb-4">
-              I am a <span className="text-blue-500 cursor-pointer"></span>
+      {/* Particles */}
+      <ParticlesContainer className="absolute inset-0 z-10 pointer-events-none" />
+      <SocialBar />
+      <img
+        src="/Home/ellipse.svg"
+        alt="Ellipse Vector"
+        className="absolute right-0 bottom-0 w-2/3 md:w-50p lg:w-35p pointer-events-none"
+      />
+
+      {/* Content Section */}
+      <div id="home" className="relative z-20 mt-28">
+        <motion.div
+          transition={config}
+          initial={{ scale: 0.3, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1, transitionDuration: "0.2s" }}
+          exit={{ x: 0, opacity: 0 }}
+        >
+          <div className="grid grid-cols-12 gap-4 h-84.5vh ml-4 sm:mx-12 md:mx-16">
+            <div className="col-span-12 md:col-span-7 lg:col-span-6 flex flex-col justify-center items-center">
+              {/* Hero Header */}
+              <div className="items-center w-3/4 mt-2 relative z-20">
+                {" "}
+                {/* Added z-index */}
+                <img
+                  src="/Home/triangle.svg"
+                  alt="Triangle 3d Vector"
+                  className="hidden md:block absolute right-0 top-0 w-2/3 md:w-16 animate-spin"
+                />
+                <HeaderSmall text="Who I am?" />
+                <h1 className="text-3xl sm:text-2xl xl:text-1xl font-extrabold text-white leading-none mb-3">
+                  Harsh Goel
+                </h1>
+                <h5 className="text-7xl font-light text-violet text-justify">
+                  "A fresher with experience", this line says exactly who he is.
+                  He is a software developer who crafts beautiful web and apps.
+                  His perfect balance of technical & managerial skills stands
+                  him apart from the crowd.
+                </h5>
+                <div className="grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-4 mt-6">
+                  <div className="sm:col-span-1 xl:col-span-1">
+                    <Button
+                      type="solid"
+                      text="Know More"
+                      onClickHandler={() => router.push("#journey")}
+                    />
+                  </div>
+                  <div className="sm:col-span-1 xl:col-span-1">
+                    <Button
+                      type="outlined"
+                      text="Download Resume"
+                      onClickHandler={() =>
+                        window.open(personalDetails.resume, "_blank")
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-lg leading-8 text-gray-700/90 mb-8">{""}</p>
-            <a
-              href={""}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full max-w-[300px] text-center px-4 py-4 bg-gradient-to-br from-purple-500 to-pink-500 
-              text-white rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl"
-            >
-              Check Resume
-            </a>
           </div>
-
-          {/* Right Section */}
-          <div className="order-1 lg:order-2 w-full flex justify-center lg:justify-end items-center">
-            <img
-              src={
-                "https://img.indiaforums.com/article/900x900/20/8385-bhavika-sharma-savis-new-look-is-simple-yet-elegant.jpg"
-              }
-              alt="hero"
-              className="w-full max-w-[400px] h-auto rounded-full border-4 border-blue-500 shadow-lg"
-            />
-          </div>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Avatar Section */}
+      <motion.div
+        variants={fadeIn("up", 0.5)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="absolute w-full max-w-[737px] max-h-[678px] bottom-2 right-[5%] z-20"
+      >
+        <Avatar />
+      </motion.div>
     </div>
   );
 };

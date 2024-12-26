@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import navLinks from "../data/NavLinks";
 import { FaBars } from "react-icons/fa";
@@ -15,14 +14,14 @@ const NavItem = ({
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    setActiveItem(href); // Set active state immediately on click
+    setActiveItem(href);
 
     if (href === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const element = document.querySelector(href);
       if (element) {
-        const offset = element.offsetTop - 100; // Adjust offset as needed
+        const offset = element.offsetTop - 100;
         window.scrollTo({
           top: offset,
           behavior: "smooth",
@@ -37,44 +36,69 @@ const NavItem = ({
       initial="hidden"
       animate="visible"
       variants={variants}
-      className="px-5 py-2 pt-1 md:pt-4 md:px-4 md:text-center"
+      className="px-5 -py-2 pt-1 md:pt-4 md:px-2 md:text-center flex flex-col items-center gap-0"
     >
       <a href={href} onClick={handleClick}>
         <p
-          className={`transition duration-500 ease-in-out transform md:hover:-translate-y-2 text-white font-bold ${
+          className={`transition-all duration-500 ease-in-out transform md:hover:-translate-y-2 text-white font-bold ${
             activeItem === href ? "text-violet" : "md:hover:text-violet"
           }`}
         >
           {title}
         </p>
       </a>
-      <Image
-        src="/Navbar/nav_active.svg"
-        alt="nav-active"
-        className={`hidden md:block transition-opacity duration-500 mx-auto ${
-          activeItem === href ? "opacity-100" : "opacity-0"
-        }`}
-        width={60}
-        height={60}
-        priority
-      />
+      <motion.div
+        animate={{
+          opacity: activeItem === href ? 1 : 0,
+          y: activeItem === href ? 0 : 10,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <Image
+          src="/Navbar/nav_active.svg"
+          alt="nav-active"
+          className="hidden md:block"
+          width={70}
+          height={70}
+          priority
+        />
+      </motion.div>
     </motion.li>
   );
 };
 
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const [isScreenScrolled, setIsScreenScrolled] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeItem, setActiveItem] = useState("/");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScreenScrolled(window.scrollY >= 100);
+      const currentScrollY = window.scrollY;
+
+      // Scroll Direction
+      setIsScrollingUp(currentScrollY < lastScrollY);
+
+      // Determine Active Section
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150; // Adjust offset as needed
+        const sectionHeight = section.offsetHeight;
+        if (
+          currentScrollY >= sectionTop &&
+          currentScrollY < sectionTop + sectionHeight
+        ) {
+          setActiveItem(`#${section.id}`);
+        }
+      });
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navVariants = {
     hidden: {
@@ -93,32 +117,58 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={`mx-auto bg-blue w-full fixed z-30 ${
-        isScreenScrolled && "shadow-2xl"
+    <motion.div
+      className={`mx-auto bg-[#11192B] w-full fixed z-30 ${
+        isScrollingUp ? "" : "shadow-2xl"
       }`}
+      style={{
+        borderBottom: "1px solid transparent",
+        backgroundImage:
+          "linear-gradient(to right, #131929, rgba(19, 25, 41, 0.8), rgba(0, 0, 0, 0))",
+      }}
+      animate={{
+        height: isScrollingUp ? "8rem" : "6rem", // Adjust height when scrolling up or down
+      }}
+      transition={{
+        duration: 0.8,
+        ease: "backOut",
+      }}
     >
-      <nav className="block md:flex justify-between items-center p-2 px-8">
-        <div className="flex justify-between items-center">
-          <a
+      <nav className="block md:flex justify-between items-center h-full px-8">
+        <div className="flex justify-between items-center h-full">
+          <motion.a
             href="/"
             onClick={(e) => {
               e.preventDefault();
               setActiveItem("/");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+            className="flex items-center h-full"
           >
-            <Image
-              src="/Navbar/logo.png"
-              alt="logo"
-              className={`pl-30 my-2 transition-all transform hover:scale-75 cursor-pointer ${
-                isScreenScrolled ? "w-12 md:w-14" : "w-16 md:w-20"
-              }`}
-              width={100}
-              height={100}
-              priority
-            />
-          </a>
+            <motion.div
+              className="relative"
+              style={{
+                width: "100px",
+                height: "100px",
+              }}
+              animate={{
+                scale: isScrollingUp ? 1 : 0.7, // Smoothly scale the logo
+              }}
+              transition={{
+                duration: 0.8,
+                ease: "backOut",
+              }}
+            >
+              <Image
+                src="/Navbar/logo.png"
+                alt="logo"
+                className="cursor-pointer object-contain transition-all"
+                fill
+                sizes="80px"
+                priority
+              />
+            </motion.div>
+          </motion.a>
           <div className="flex md:hidden">
             <button
               type="button"
@@ -131,31 +181,36 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {showMobileNav && (
-          <div
-            className={
-              showMobileNav ? "block pt-3 transition-all" : "hidden md:block"
-            }
-            onClick={() => setShowMobileNav(false)}
-          >
-            <ul className="md:flex md:flex-row border-pink border-2 md:border-none">
-              {navLinks.map((item, index) => (
-                <NavItem
-                  key={item.href}
-                  href={item.href}
-                  title={item.title}
-                  custom={index}
-                  variants={navVariants}
-                  activeItem={activeItem}
-                  setActiveItem={setActiveItem}
-                />
-              ))}
-            </ul>
-          </div>
-        )}
+        <motion.div
+          className={showMobileNav ? "block pt-3" : "hidden md:block"}
+          initial={false}
+          animate={{
+            height: showMobileNav ? "auto" : 0,
+            opacity: showMobileNav ? 1 : 0,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: "backOut",
+          }}
+          onClick={() => setShowMobileNav(false)}
+        >
+          <ul className="md:flex md:flex-row border-pink border-2 md:border-none">
+            {navLinks.map((item, index) => (
+              <NavItem
+                key={item.href}
+                href={item.href}
+                title={item.title}
+                custom={index}
+                variants={navVariants}
+                activeItem={activeItem}
+                setActiveItem={setActiveItem}
+              />
+            ))}
+          </ul>
+        </motion.div>
 
         {/* Desktop Navigation */}
-        <div className={`hidden md:block`}>
+        <div className="hidden md:block">
           <ul className="md:flex md:flex-row">
             {navLinks.map((item, index) => (
               <NavItem
@@ -171,7 +226,7 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
