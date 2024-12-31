@@ -9,9 +9,10 @@ export default function Button({ text, type, onClickHandler = () => {} }) {
                 overflow-hidden border-2 border-transparent hover:shadow-light-xl
                   ${
                     type === "solid"
-                      ? "bg-gradient-to-r from-[#1E4776] to-[#252C60] text-white hover:outline-none hover:bg-transparent hover:text-pink hover:border-pink focus:outline-none border-none"
-                      : "bg-gradient-to-r from-[#1E4776] to-[#252C60] text-white hover:bg-pink hover:text-blue hover:border-pink focus:outline-none border-none"
-                  }`}
+                      ? "bg-violet text-blue hover:outline-none hover:bg-transparent hover:text-violet hover:border-violet focus:outline-none"
+                      : "text-violet bg-transparent border-violet hover:outline-none hover:bg-violet hover:text-blue hover:border-violet focus:outline-none"
+                  }
+                   `}
       >
         {text}
       </button>

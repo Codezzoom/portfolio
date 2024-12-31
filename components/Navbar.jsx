@@ -69,36 +69,21 @@ const NavItem = ({
 
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScreenScrolled, setisScreenScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState("/");
 
+  const addShadowtoNav = () => {
+    window.scrollY >= 100
+      ? setisScreenScrolled(true)
+      : setisScreenScrolled(false);
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Scroll Direction
-      setIsScrollingUp(currentScrollY < lastScrollY);
-
-      // Determine Active Section
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150; // Adjust offset as needed
-        const sectionHeight = section.offsetHeight;
-        if (
-          currentScrollY >= sectionTop &&
-          currentScrollY < sectionTop + sectionHeight
-        ) {
-          setActiveItem(`#${section.id}`);
-        }
-      });
-
-      setLastScrollY(currentScrollY);
+    window.addEventListener("scroll", addShadowtoNav);
+    return () => {
+      window.removeEventListener("scroll", addShadowtoNav);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const navVariants = {
     hidden: {
@@ -119,20 +104,8 @@ const Navbar = () => {
   return (
     <motion.div
       className={`mx-auto bg-[#11192B] w-full fixed z-30 ${
-        isScrollingUp ? "" : "shadow-2xl"
+        isScreenScrolled ? "shadow-2xl" : ""
       }`}
-      style={{
-        borderBottom: "1px solid transparent",
-        backgroundImage:
-          "linear-gradient(to right, #131929, rgba(19, 25, 41, 0.8), rgba(0, 0, 0, 0))",
-      }}
-      animate={{
-        height: isScrollingUp ? "8rem" : "6rem", // Adjust height when scrolling up or down
-      }}
-      transition={{
-        duration: 0.8,
-        ease: "backOut",
-      }}
     >
       <nav className="block md:flex justify-between items-center h-full px-8">
         <div className="flex justify-between items-center h-full">
@@ -152,10 +125,10 @@ const Navbar = () => {
                 height: "100px",
               }}
               animate={{
-                scale: isScrollingUp ? 1 : 0.7, // Smoothly scale the logo
+                scale: isScreenScrolled ? 0.7 : 1,
               }}
               transition={{
-                duration: 0.8,
+                duration: 0.3,
                 ease: "backOut",
               }}
             >

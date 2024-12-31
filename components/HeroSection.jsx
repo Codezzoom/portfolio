@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroBgAnimation from "./HeroBGAnimation";
 import HeaderSmall from "./HeaderSmall";
 import Button from "./Button";
 import ParticlesContainer from "./ParticlesContainer";
 import { fadeIn } from "@/variants";
 import Avatar from "./Avatar";
 import SocialBar from "./SocialBar";
+import Cookies from "./Cookies";
 
 const HeroSection = () => {
   const config = {
@@ -19,12 +19,27 @@ const HeroSection = () => {
     <div className="relative h-full overflow-hidden">
       {/* Background Explosion */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-[#131929] via-[#131929] to-[#131929] xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full mix-blend-color-dodge translate-z-0"
+        className="absolute inset-0 bg-[#121929] xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full translate-z-0"
         aria-hidden="true"
       />
+      <Cookies />
+
+      {/* Bottom Arc */}
+      {/* <div className="absolute bottom-0 left-0 w-full ">
+        <svg
+          viewBox="0 0 1440 120"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 120L1440 120V80C1440 80 1120 0 720 0C320 0 0 80 0 80V120Z"
+            className="fill-[#232946]"
+          />
+        </svg>
+      </div> */}
 
       {/* Particles */}
-      <ParticlesContainer className="absolute inset-0 z-10 pointer-events-none" />
+      {/* <ParticlesContainer className="absolute inset-0 z-10 pointer-events-none" /> */}
       <SocialBar />
       <img
         src="/Home/ellipse.svg"
@@ -44,8 +59,6 @@ const HeroSection = () => {
             <div className="col-span-12 md:col-span-7 lg:col-span-6 flex flex-col justify-center items-center">
               {/* Hero Header */}
               <div className="items-center w-3/4 mt-2 relative z-20">
-                {" "}
-                {/* Added z-index */}
                 <img
                   src="/Home/triangle.svg"
                   alt="Triangle 3d Vector"
@@ -94,7 +107,7 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeInOut" }}
         className="absolute w-full max-w-[737px] max-h-[678px] bottom-2 right-[5%] z-20"
       >
-        <Avatar />
+        {/* <Avatar /> */}
       </motion.div>
     </div>
   );

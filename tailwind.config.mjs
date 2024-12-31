@@ -28,7 +28,8 @@ export default {
         accent: "#F13024",
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif']
+        poppins: ['Poppins', 'sans-serif'],
+        Titan: ['"Titan One"', 'serif'],
       },
       transitionDuration: {
         0: '0ms',

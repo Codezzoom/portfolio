@@ -13,9 +13,7 @@ const geistMono = Geist_Mono({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    >
+    <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <Component {...pageProps} />
     </div>
   );
