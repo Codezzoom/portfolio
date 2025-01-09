@@ -10,6 +10,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import ProjectDetails from "@/components/ProjectDetails";
 
 function Home() {
   const [darkMode, setDarkMode] = useState(true);

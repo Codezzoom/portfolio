@@ -19,8 +19,16 @@ const titan = Titan_One({
 
 const itemVariants = {
   hidden: { opacity: 0, y: 50 }, // Starts off-screen
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } }, // Animates into view
-  exit: { opacity: 0, y: -50, transition: { duration: 0.5, ease: "easeInOut" } }, // Animates out of view
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  }, // Animates into view
+  exit: {
+    opacity: 0,
+    y: -50,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  }, // Animates out of view
 };
 
 const Education = () => {
@@ -55,9 +63,9 @@ const Education = () => {
                 </motion.div>
               </TimelineContent>
               <TimelineSeparator>
-                <TimelineDot variant="outlined" color="secondary" />
+                <TimelineDot variant="outlined" color="inherit" />
                 {index !== experiences.length && (
-                  <TimelineConnector style={{ background: "#854CE6" }} />
+                  <TimelineConnector style={{ background: "#B8C1EC" }} />
                 )}
               </TimelineSeparator>
             </TimelineItem>

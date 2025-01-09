@@ -5,7 +5,7 @@ import Image from "next/image";
 const EducationCard = ({ education }) => {
   return (
     <motion.div
-      className="group w-[650px] rounded-lg bg-[#171721] shadow-lg shadow-[rgba(23,92,230,0.15)] p-8 flex flex-col gap-3 relative overflow-hidden transition-all duration-300 ease-in-out hover:shadow-[0px_0px_20px_rgba(133,76,230,0.5)] hover:-translate-y-1 border border-[#854ce6] hover:cursor-pointer"
+      className="group w-[650px] rounded-lg bg-[#121929] shadow-xl shadow-[rgba(0,0,0,0.4)] p-8 flex flex-col gap-3 relative overflow-hidden transition-all duration-300 ease-in-out hover:cursor-pointer"
       initial="collapsed"
       whileHover="expanded"
     >
@@ -58,7 +58,7 @@ const EducationCard = ({ education }) => {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#171721] to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#121929] to-transparent"
           variants={{
             collapsed: { opacity: 1 },
             expanded: { opacity: 0 },

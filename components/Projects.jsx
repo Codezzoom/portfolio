@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import projects from "@/data/projects";
+import ProjectCard from "./ProjectCard";
+import { Titan_One } from "next/font/google";
+
+const titan = Titan_One({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-rampart",
+});
 
 const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");
@@ -10,18 +19,23 @@ const Projects = ({ openModal, setOpenModal }) => {
     >
       <div className="relative flex flex-col items-center justify-between w-full max-w-[1350px] gap-3 px-0 py-10 md:py-24">
         {/* Title */}
-        <h2 className="text-4xl font-semibold text-center text-gray-800 mt-5 md:mt-3 md:text-3xl">
+        <h2
+          className={`text-7xl text-center font-semibold text-white mt-5 sm:text-2xl ${titan.className}`}
+        >
           Projects
         </h2>
 
         {/* Description */}
-        <p className="max-w-[600px] text-lg text-center text-gray-600 md:text-base">
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
-        </p>
+        <div className="text-sm text-center max-w-lg text-gray-400 sm:text-xs">
+          <p>
+            I have worked on a wide range of projects. From web apps to android
+            apps.
+          </p>
+          <p>Here are some of my projects.</p>
+        </div>
 
         {/* Toggle Button Group */}
-        <div className="flex items-center justify-center border border-purple-500 text-purple-500 text-sm font-medium rounded-lg mt-5 md:text-xs">
+        <div className="flex items-center justify-center border border-purple-500 text-purple-500 text-sm font-medium rounded-lg m-5 md:text-xs">
           {/* Toggle Buttons */}
           {["all", "web app", "android app", "machine learning"].map(
             (category, index) => (
@@ -46,7 +60,25 @@ const Projects = ({ openModal, setOpenModal }) => {
 
         {/* Project Cards */}
         <div className="flex flex-wrap items-center justify-center gap-7">
-          
+          {toggle === "all" &&
+            projects.map((project, index) => (
+              <ProjectCard
+                project={project}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                index={index}
+              />
+            ))}
+          {projects
+            .filter((item) => item.category == toggle)
+            .map((project, index) => (
+              <ProjectCard
+                project={project}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                index={index}
+              />
+            ))}
         </div>
       </div>
     </div>

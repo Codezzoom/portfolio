@@ -27,7 +27,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="relative flex flex-col justify-center items-center bg-[#232946] py-16"
+      className="relative flex flex-col justify-center items-center bg-[#121929] py-16"
     >
       {/* Top Arc */}
       <div className="absolute top-0 left-0 w-full rotate-180">
