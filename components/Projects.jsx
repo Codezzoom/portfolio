@@ -37,7 +37,7 @@ const Projects = ({ openModal, setOpenModal }) => {
         {/* Toggle Button Group */}
         <div className="flex items-center justify-center border border-purple-500 text-purple-500 text-sm font-medium rounded-lg m-5 md:text-xs">
           {/* Toggle Buttons */}
-          {["all", "web app", "android app", "machine learning"].map(
+          {["all", "web app", "android app", "machine learning", "games"].map(
             (category, index) => (
               <React.Fragment key={category}>
                 <div

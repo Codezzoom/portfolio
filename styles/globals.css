@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -36,8 +36,9 @@ html {
   transform: translateZ(0px);
 }
 
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
   background-color: #f13024;
 }
 
@@ -135,7 +136,6 @@ nav ul li a:hover {
   /* Adjust duration and timing */
 }
 
-
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -153,3 +153,27 @@ nav ul li a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #525f9e;
 }
+
+/* Custom Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust thickness */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #242424; /* Track background */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Scrollbar color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d1d1d1; /* Hover color */
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox thin scrollbar */
+  scrollbar-color: #ffffff #242424; /* Scrollbar thumb and track colors */
+}
+

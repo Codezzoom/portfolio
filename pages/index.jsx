@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import ProjectDetails from "@/components/ProjectDetails";
+import projects from "@/data/projects";
 
 function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -80,7 +81,11 @@ function Home() {
 
           {/* Project Details Modal */}
           {openModal.state && (
-            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+            <ProjectDetails
+              openModal={openModal}
+              setOpenModal={setOpenModal}
+              projects={projects}
+            />
           )}
         </div>
       </Router>
