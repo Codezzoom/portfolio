@@ -39,17 +39,11 @@ function Home() {
           </div>
 
           {/* Skills and Experience */}
-          <div
-            className="w-full bg-gradient-to-r from-pink-100 via-blue-100 to-pink-50"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
-            }}
-          >
+          <div className="w-full bg-purple-600/10">
             {/* SKILLS */}
             <div id="skills">
               <Skills />
             </div>
-
             {/* EXPERIENCE */}
             <div id="experience">
               <Experience />
@@ -63,21 +57,22 @@ function Home() {
 
           {/* Education and Contact */}
           <div
-            className="w-full bg-gradient-to-r from-pink-100 via-blue-100 to-pink-50"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
-            }}
+            className="w-full"
+            // style={{
+            //   clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
+            // }}
           >
             <div id="education">
               <Education />
             </div>
-            <div id="contact">
+            <div id="contact" className="bg-[#1c2d4a]">
               <Contact />
             </div>
           </div>
 
-          {/* Footer */}
-          <Footer />
+          {/* Footer */}          
+            <Footer />
+
 
           {/* Project Details Modal */}
           {openModal.state && (

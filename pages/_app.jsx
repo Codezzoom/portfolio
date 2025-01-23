@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Head from "next/head";
 import "../styles/globals.css";
 
 const geistSans = Geist({
@@ -14,6 +15,20 @@ const geistMono = Geist_Mono({
 function MyApp({ Component, pageProps }) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      {/* Global Head */}
+      <Head>
+        <title>Amritvir Randhawa | Software Developer</title>
+        <meta name="title" content="Amritvir Randhawa | Software Developer" />
+        <meta
+          name="description"
+          content="Amritvir is a full stack developer who crafts beautiful web and mobile apps."
+        />
+        <meta
+          name="keywords"
+          content="Amritvir is a full stack developer who crafts beautiful web and mobile apps."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Component {...pageProps} />
     </div>
   );

@@ -35,15 +35,18 @@ const Education = () => {
   return (
     <div
       id="education"
-      className="flex flex-col justify-center relative z-[1] items-center px-0 pb-16 sm:pb-0"
+      className="flex flex-col justify-center relative z-[1] items-center px-0 pb-16 sm:pb-0 bg-[#1c2d4a]"
+      // style={{
+      //   clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
+      // }}
     >
       <div className="relative flex flex-col justify-between items-center w-full max-w-[1350px] py-10 gap-3 sm:flex-col">
         <h2
-          className={`text-7xl text-center font-semibold text-white mt-5 sm:text-2xl ${titan.className}`}
+          className={`text-7xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
         >
           Education.
         </h2>
-        <div className="text-sm text-center max-w-lg text-gray-400 sm:text-xs mb-8">
+        <div className="text-sm text-center max-w-lg text-gray-300 sm:text-xs mb-8">
           <p>My education has been a journey of self-discovery and growth.</p>
           <p>My educational details are as follows.</p>
         </div>

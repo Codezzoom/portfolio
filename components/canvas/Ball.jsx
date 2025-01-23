@@ -6,10 +6,11 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useState, useRef, useMemo, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Suspense } from "react";
 import * as THREE from "three";
 import CanvasLoader from "../Loader";
+import { motion } from "framer-motion";
 
 const Star = ({ initialPosition, velocity }) => {
   const meshRef = useRef();
@@ -31,9 +32,16 @@ const Star = ({ initialPosition, velocity }) => {
   });
 
   return (
-    <mesh ref={meshRef} position={[initialPosition.x, initialPosition.y, initialPosition.z]}>
+    <mesh
+      ref={meshRef}
+      position={[initialPosition.x, initialPosition.y, initialPosition.z]}
+    >
       <boxGeometry args={[0.2, 0.2, 0.2]} />
-      <meshStandardMaterial color="#fff" emissive="#fff" emissiveIntensity={2} />
+      <meshStandardMaterial
+        color="#fff"
+        emissive="#fff"
+        emissiveIntensity={2}
+      />
     </mesh>
   );
 };
@@ -83,16 +91,11 @@ const Ball = ({ imgUrl, name }) => {
 
     return () => clearInterval(timer); // Cleanup interval
   }, []);
-
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh 
-        castShadow 
-        receiveShadow 
-        scale={scale}
-      >
+      <mesh castShadow receiveShadow scale={scale}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff8eb"
@@ -121,8 +124,14 @@ const Ball = ({ imgUrl, name }) => {
 };
 
 const BallCanvas = ({ icon, name }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="w-28 h-28">
+    <motion.div
+      className="w-28 h-28 flex flex-col items-center justify-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Canvas
         frameloop="always"
         dpr={[1, 2]}
@@ -130,11 +139,21 @@ const BallCanvas = ({ icon, name }) => {
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls enableZoom={false} />
-          <Ball imgUrl={icon} name={name} />
+          <Ball imgUrl={icon} />
         </Suspense>
         <Preload all />
       </Canvas>
-    </div>
+      {isHovered && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          className="mt-2 text-gray-300 text-sm text-center"
+        >
+          {name}
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 

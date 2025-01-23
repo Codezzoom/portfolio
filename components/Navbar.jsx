@@ -40,8 +40,8 @@ const NavItem = ({
     >
       <a href={href} onClick={handleClick}>
         <p
-          className={`transition-all duration-500 ease-in-out transform md:hover:-translate-y-2 text-white font-bold ${
-            activeItem === href ? "text-violet" : "md:hover:text-violet"
+          className={`transition-all duration-500 ease-in-out transform md:hover:-translate-y-2 text-white font-extrabold ${
+            activeItem === href ? "text-white" : "md:hover:text-white"
           }`}
         >
           {title}
@@ -103,8 +103,8 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className={`mx-auto bg-[#11192B] w-full fixed z-30 ${
-        isScreenScrolled ? "shadow-2xl" : ""
+      className={`mx-auto bg-gradient-to-r from-[#1c2d4a] to-primary w-full fixed z-30 ${
+        isScreenScrolled ? "shadow-xl" : ""
       }`}
     >
       <nav className="block md:flex justify-between items-center h-full px-8">

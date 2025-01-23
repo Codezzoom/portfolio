@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const tailwindConfig = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,6 +14,10 @@ export default {
       'slide-up': {
         '0%': { transform: 'translateY(0%)', opacity: '1' },
         '100%': { transform: 'translateY(-100%)', opacity: '0' },
+      },
+      'spin': {
+        '0%': { transform: 'rotate(0deg)' },
+        '100%': { transform: 'rotate(360deg)' },
       },
     },
     animation: {
@@ -33,9 +37,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#1e40af",
-        text_primary: "#ffffff",
-        card_light: "#f3f4f6",
+        primary: "#213555",
+        // primary: "#2A3F3A",
+        secondary: "#B8C1EC",
         blue: '#232946',
         pink: '#EEBBC3',
         violet: '#B8C1EC',
@@ -50,7 +54,7 @@ export default {
         2000: '7000ms'
       },
       backgroundImage: {
-        explosion: "url('/bg-explosion.png')",
+        explosion: "url('/bg-exp.png')",
         circles: 'url("/bg-circles.png")',
         circleStar: 'url("/circle-star.svg")',
         site: 'url("/site-bg.svg")',
@@ -92,3 +96,5 @@ export default {
   },
   plugins: [require('@tailwindcss/line-clamp')],
 };
+
+export default tailwindConfig;

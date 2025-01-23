@@ -1,11 +1,33 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import socialMedia from "@/data/SocialMedia";
 import { Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
+  const router = useRouter();
   // Current year
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="relative bg-[#1E2527] text-white py-20 overflow-hidden">
+    <footer className="relative bg-gradient-to-t from-[#142035] to-primary text-white py-20 overflow-hidden">
+      {/* Arc shape at the top */}
+      <motion.div
+        className="absolute top-0 w-full"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <svg
+          viewBox="0 0 1440 150"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,150 C480,0 960,0 1440,150 L1440,0 L0,0 Z"
+            fill="#19263e" /* Replace with your desired arc color */
+          />
+        </svg>
+      </motion.div>
       {/* Decorative shapes */}
       <motion.div
         className="absolute top-0 left-0 w-32 h-16 bg-[#68A69B] rounded-b-full opacity-80"
@@ -56,15 +78,16 @@ const Footer = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Ready to get started? Get in touch with us
+                Ready to get started? Get in touch with me
               </motion.h2>
             </div>
             <motion.button
-              className="px-12 py-2 border border-gray-600 rounded-md hover:bg-white hover:text-[#1A1D24] transition-colors ml-8 font-semibold text-[12px]"
+              className="px-12 py-2 border border-gray-500 rounded-md hover:bg-white hover:text-[#1A1D24] transition-colors ml-8 font-semibold text-[12px]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              onClick={() => router.push("#contact")}
             >
               CONTACT
             </motion.button>
@@ -78,17 +101,19 @@ const Footer = () => {
         <div className="flex justify-between mx-10">
           {/* Logo and social section */}
           <div className="w-1/4">
-            <motion.h3
-              className="text-2xl font-bold mb-8"
+            <motion.img
+              src="/Navbar/logo.png"
+              alt="logo"
+              className="w-28 h-28 mb-2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-            >
-              PayeeCo.
-            </motion.h3>
+            />
+
             <div className="flex space-x-4">
               {/* EMAIL */}
               <motion.a
-                href="#"
+                href={socialMedia[0].link}
+                target="_blank"
                 className="bg-slate-200 rounded-full p-4 hover:bg-gray-700 transition-colors group"
                 whileHover={{ scale: 1.2 }}
               >
@@ -98,9 +123,10 @@ const Footer = () => {
                 />
               </motion.a>
 
-              {/* LINKEIN */}
+              {/* LINKEDIN */}
               <motion.a
-                href="#"
+                href={socialMedia[1].link}
+                target="_blank"
                 className="bg-slate-200 rounded-full p-4 hover:bg-gray-700 transition-colors group"
                 whileHover={{ scale: 1.2 }}
               >
@@ -112,7 +138,8 @@ const Footer = () => {
 
               {/* FACEBOOK */}
               <motion.a
-                href="#"
+                href={socialMedia[2].link}
+                target="_blank"
                 className="bg-slate-200 rounded-full p-4 hover:bg-gray-700 transition-colors group"
                 whileHover={{ scale: 1.2 }}
               >
@@ -124,7 +151,8 @@ const Footer = () => {
 
               {/* GITHUB */}
               <motion.a
-                href="#"
+                href={socialMedia[3].link}
+                target="_blank"
                 className="bg-slate-200 rounded-full p-4 hover:bg-gray-700 transition-colors group"
                 whileHover={{ scale: 1.2 }}
               >
@@ -136,7 +164,8 @@ const Footer = () => {
 
               {/* INSTAGRAM */}
               <motion.a
-                href="#"
+                href={socialMedia[4].link}
+                target="_blank"
                 className="bg-slate-200 rounded-full p-4 hover:bg-gray-700 transition-colors group"
                 whileHover={{ scale: 1.2 }}
               >
@@ -162,64 +191,64 @@ const Footer = () => {
               <motion.ul className="space-y-2 text-gray-400 text-[14px]">
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#home"
                     className="hover:text-white tracking-wide link-underline"
                   >
-                    Company
+                    Home
                   </a>
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#skills"
                     className="hover:text-white tracking-wide link-underline"
                   >
-                    Our team
+                    Skills
                   </a>
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#education"
                     className="hover:text-white tracking-wide link-underline"
                   >
-                    Life at Payee Co.
+                    Education
                   </a>
                 </motion.li>
               </motion.ul>
             </div>
 
-            {/* Products */}
+            {/* Expertise */}
             <div>
               <motion.h4
                 className="text-[14px] font-bold mb-6 tracking-wide"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                PRODUCTS
+                EXPERTICE
               </motion.h4>
               <motion.ul className="space-y-2 text-gray-400 text-[14px]">
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#projects"
                     className="hover:text-white tracking-wide link-underline"
                   >
-                    Techtube
+                    Projects
                   </a>
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#experience"
                     className="hover:text-white tracking-wide link-underline"
                   >
-                    Pay Easy
+                    Experience
                   </a>
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#contact"
                     className="hover:text-white tracking-wide link-underline"
                   >
                     {" "}
-                    Pay & Slay
+                    Contact Us
                   </a>
                 </motion.li>
               </motion.ul>
@@ -253,7 +282,7 @@ const Footer = () => {
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href="#contact"
                     className="hover:text-white tracking-wide link-underline"
                   >
                     Site Map
@@ -271,7 +300,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <p>PAYEE CO PTY LTD © {currentYear}</p>
+          <p>CRAFTED WITH ❤️ BY AMRIT © {currentYear}</p>
           <p className="mx-1">•</p>
           <p className="mr-28">ALL RIGHTS RESERVED</p>
         </motion.div>

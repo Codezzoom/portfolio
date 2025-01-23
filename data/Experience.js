@@ -26,8 +26,7 @@ export const experiences = [
             " Next Js",
         ],
         description:
-            `
-        • Developed a full-stack music streaming platform using React Native, and AWS (Cognito, DynamoDB, S3), optimizing user authentication and profile management.
+            `• Developed a full-stack music streaming platform using React Native, and AWS (Cognito, DynamoDB, S3), optimizing user authentication and profile management.
         • Implemented advanced UI for artist/listener profiles, featuring CRUD operations with 90% faster data retrieval and 35% improved user interaction.
         • Created comprehensive dashboard analytics tracking follower metrics, top tracks, and geographical popularity for artists.
         • Engineered social engagement features including dynamic post, live like/comment tracking, and real-time user interaction.
@@ -57,8 +56,7 @@ export const experiences = [
             "Quickness",
         ],
         description:
-            `
-        • Accurately shopped, packed, and prepared online grocery orders, ensuring the highest standards of quality and precision.
+            `• Accurately shopped, packed, and prepared online grocery orders, ensuring the highest standards of quality and precision.
         • Navigated the store efficiently to fulfill customer orders within tight timeframes, demonstrating excellent time management skills.
         • Provided friendly and professional customer service during pickups, addressing customer needs and resolving any issues promptly.
         • Worked collaboratively with team members to meet daily order targets and maintain smooth operations under strict deadlines.

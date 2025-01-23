@@ -27,34 +27,43 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="relative flex flex-col justify-center items-center bg-[#121929] py-16"
+      className="relative flex flex-col justify-center items-center bg-gradient-to-r from-primary to-[#1c2d4a] py-16"
     >
       {/* Top Arc */}
-      <div className="absolute top-0 left-0 w-full rotate-180">
+      <div className="absolute -top-1 left-0 w-full rotate-180">
         <svg
           viewBox="0 0 1440 120"
           className="w-full h-auto"
           preserveAspectRatio="none"
         >
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#213555" />
+              <stop offset="100%" stopColor="#1c2d4a" />
+            </linearGradient>
+          </defs>
           <path
             d="M0 120L1440 120V80C1440 80 1120 0 720 0C320 0 0 80 0 80V120Z"
-            className="fill-[#121929]"
+            fill="url(#gradient)"
           />
         </svg>
       </div>
 
       <div className="flex flex-col justify-between items-center w-full max-w-5xl mt-12">
         <h2
-          className={`text-7xl text-center font-semibold text-white mt-5 sm:text-2xl ${titan.className}`}
+          className={`text-7xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
         >
           Skills.
         </h2>
-        <div className="text-sm text-center max-w-lg text-gray-400 sm:text-xs mb-8">
+        <div className="text-sm text-center max-w-lg text-gray-300 sm:text-xs mb-8">
           <p>
-            These skills highlight my expertise and dedication to creating
-            impactful solutions.
+            These skills showcase my commitment to building exceptional digital
+            experiences.
           </p>
-          <p>They reflect my passion for continuous learning and innovation.</p>
+          <p>
+            They reflect my drive for growth, and crafting solutions that
+            matter.
+          </p>
         </div>
 
         {/* Skills Balls with Animation */}
@@ -62,14 +71,14 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="w-28 h-28"
+              className="w-28 h-28 cursor-pointer"
               variants={dropInVariants}
               initial="hidden"
               whileInView="visible"
               custom={index}
               viewport={{ once: true, amount: 0.25 }}
             >
-              <BallCanvas icon={skill.icon} />
+              <BallCanvas icon={skill.icon} name={skill.name} />
             </motion.div>
           ))}
         </div>

@@ -2,7 +2,11 @@ import socialMedia from "../data/SocialMedia";
 
 function SocialIcon({ alt_text, image_file, link }) {
   return (
-    <a href={link}>
+    <a
+      href={link}
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
       <img
         src={image_file}
         alt={alt_text}
@@ -24,7 +28,7 @@ export default function SocialBar() {
             key={item.image_file}
           />
         ))}
-        <div className="h-20 md:h-32 mt-2 w-1/12 bg-violet" />
+        <div className="h-20 md:h-32 mt-2 w-1/12 bg-secondary" />
       </div>
     </div>
   );

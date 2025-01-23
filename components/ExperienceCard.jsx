@@ -7,6 +7,8 @@ import { FastAverageColor } from "fast-average-color";
 const ExperienceCard = ({ experience, index }) => {
   const [gradientBg, setGradientBg] = useState("");
   const imgRef = useRef(null);
+  const randomRotationNumber = Math.random() * 20 - 5;
+  const [expandedItems, setExpandedItems] = useState({});
 
   useEffect(() => {
     const setGradientFromImage = async () => {
@@ -40,7 +42,6 @@ const ExperienceCard = ({ experience, index }) => {
     };
   }, []);
 
-  const [expandedItems, setExpandedItems] = useState({});
   const handleToggle = (id) => {
     setExpandedItems((prevState) => ({
       ...prevState,
@@ -78,18 +79,23 @@ const ExperienceCard = ({ experience, index }) => {
     >
       {/* Background Number */}
       <div
-        className="absolute text-[225px] font-bold text-gray-600 opacity-10 left-[-80px] top-[-45px] z-0 pointer-events-none"
-        style={{ WebkitTextStroke: "2px rgba(255, 255, 255, 0.5)" }}
+        className={`absolute text-[220px] font-extrabold text-gray-200 pointer-events-none transition-all duration-500 ease-in-out z-20 ${
+          expandedItems[experience.id]
+            ? "left-16 top-[144px]"
+            : "-left-[74px] -top-10"
+        }`}
+        style={{
+          transform: `rotate(${randomRotationNumber}deg)`,
+        }}
       >
         {index + 1}
       </div>
 
       <div
-        className="w-[864px] rounded-lg shadow-xl p-8 flex flex-row gap-6 relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-pointer z-10"
-        style={{
-          background:
-            gradientBg || "linear-gradient(to bottom right, #333, #555)",
-        }}
+        className="w-[864px] rounded-lg shadow-xl p-8 flex flex-row gap-6 relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-pointer z-10 hover:opacity-80 bg-[#19263e]"
+        // style={{
+        //   transform: `rotate(${randomRotationNumber}deg)`,
+        // }}
       >
         <img
           ref={imgRef}
@@ -130,11 +136,11 @@ const ExperienceCard = ({ experience, index }) => {
           </div>
           <div className="w-full text-[14px] font-normal text-white mb-2 sm:text-[12px] relative">
             <motion.div
-              className="w-full text-[14px] font-medium text-[#E5E6E6]"
+              className="w-full text-[14px] font-normal text-[#E5E6E6]"
               initial="collapsed"
               animate={expandedItems[experience.id] ? "expanded" : "collapsed"}
               variants={{
-                collapsed: { maxHeight: "2.5rem" },
+                collapsed: { maxHeight: "5rem" },
                 expanded: { maxHeight: "100%" },
               }}
               transition={{
@@ -146,10 +152,29 @@ const ExperienceCard = ({ experience, index }) => {
               {experience?.description && (
                 <span className="block overflow-hidden text-ellipsis">
                   {expandedItems[experience.id]
-                    ? experience?.description
-                    : `${experience?.description.slice(0, 150)}${
-                        experience?.description.length > 150 ? "..." : ""
-                      }`}
+                    ? // Render full description with line breaks
+                      experience?.description
+                        .split("•")
+                        .filter((bullet) => bullet.trim()) // Remove empty entries
+                        .map((bullet, index) => (
+                          <span key={index} className="block">
+                            • {bullet.trim()}
+                          </span>
+                        ))
+                    : // Render truncated description with filtered bullet points
+                      experience?.description
+                        .split("•")
+                        .filter((bullet) => bullet.trim()) // Remove empty entries
+                        .slice(0, 3) // Limit the number of bullet points to display when collapsed
+                        .map((bullet, index) => (
+                          <span key={index} className="block">
+                            • {bullet.trim()}
+                          </span>
+                        ))}
+                  {!expandedItems[experience.id] &&
+                    experience?.description.split("•").length > 3 && (
+                      <span>...see more</span>
+                    )}
                 </span>
               )}
             </motion.div>
@@ -162,25 +187,38 @@ const ExperienceCard = ({ experience, index }) => {
           </div>
 
           {experience?.skills && (
-            <div className="flex flex-wrap gap-2 mt-2">
-              <IoDiamondOutline color="white" />
-              <div className="flex flex-wrap gap-2">
-                {experience?.skills.slice(0, 5).map((skill, index) => (
-                  <span
-                    key={index}
-                    className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
-                  >
-                    {skill}
-                    {index < experience?.skills.slice(0, 6).length - 2
-                      ? ","
-                      : ""}
-                  </span>
-                ))}
-                {experience?.skills.length > 5 && (
-                  <span className="text-[16px] font-bold text-white sm:text-[14px]">
-                    and +{experience.skills.length - 5} more
-                  </span>
-                )}
+            <div className="flex items-start gap-2 mt-2">
+              {/* Diamond Icon */}
+              <IoDiamondOutline color="white" className="mt-[2px]" />
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2 items-center">
+                {expandedItems[experience.id]
+                  ? experience?.skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
+                      >
+                        {skill}
+                        {index < experience?.skills.length - 1 ? "," : ""}
+                      </span>
+                    ))
+                  : experience?.skills.slice(0, 5).map((skill, index) => (
+                      <span
+                        key={index}
+                        className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
+                      >
+                        {skill}
+                        {index < experience?.skills.slice(0, 5).length - 1
+                          ? ","
+                          : ""}
+                      </span>
+                    ))}
+                {!expandedItems[experience.id] &&
+                  experience?.skills.length > 5 && (
+                    <span className="text-[16px] font-bold text-white sm:text-[14px]">
+                      and +{experience.skills.length - 5} more
+                    </span>
+                  )}
               </div>
             </div>
           )}

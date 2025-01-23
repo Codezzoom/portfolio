@@ -7,7 +7,7 @@ const ProjectCard = ({ project, index, setOpenModal }) => {
 
   return (
     <div
-      className="relative w-[356px] h-[524px] bg-[#171721] cursor-pointer rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(0,0,0,0.6)] p-6 flex flex-col items-center group overflow-visible"
+      className="relative w-[356px] h-[524px] bg-[#383862] cursor-pointer rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(0,0,0,0.6)] p-6 flex flex-col items-center group overflow-visible"
       onClick={() => setOpenModal({ state: true, project: project })}
     >
       {/* Gradient Overlay */}
