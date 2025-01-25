@@ -300,7 +300,7 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <p>CRAFTED WITH ❤️ BY AMRIT © {currentYear}</p>
+          <p>CRAFTED WITH ❤️ BY AR Developer © {currentYear}</p>
           <p className="mx-1">•</p>
           <p className="mr-28">ALL RIGHTS RESERVED</p>
         </motion.div>

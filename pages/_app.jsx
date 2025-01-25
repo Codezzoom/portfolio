@@ -1,6 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +32,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
+      <ToastContainer />
     </div>
   );
 }

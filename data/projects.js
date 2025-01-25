@@ -1,252 +1,190 @@
 const projects = [
   {
-    id: 9,
-    title: "Trackify",
-    date: "Jun 2023 - Jul 2023",
+    id: 0,
+    title: "Docomo",
+    date: "Aug 2023 - Dec 2023",
     new: true,
     description:
-      `EcoSustain is an innovative platform dedicated to promoting sustainability and empowering individuals to make environmentally conscious decisions in their daily lives. This web application is designed to provide users with personalized insights into their carbon footprint and actionable recommendations to reduce it. EcoSustain integrates cutting-edge machine learning algorithms to analyze user habits, such as transportation, energy consumption, and diet, and generates a detailed sustainability score.
-       Key features of EcoSustain include a real-time carbon footprint calculator, a community forum for sharing eco-friendly tips, and a rewards program for users who achieve sustainability milestones. Users can access a curated library of articles, guides, and videos on sustainable living, ranging from renewable energy solutions to zero-waste practices. The platform also offers integration with popular fitness and lifestyle apps, allowing users to seamlessly track their progress towards greener living.`,
+      `Docomo File Manager is a full-stack web application designed to revolutionize file management 
+      by offering advanced features that prioritize security, efficiency, and user convenience. Built
+      using React, Next.js, Firebase, NextAuth, and Tailwind CSS, the app provides a seamless platform
+      to organize, store, and access files while addressing key user needs. One of its standout 
+      features is an advanced file lock/unlock system that uses Tesseract.js to detect sensitive 
+      documents, prompting users to password-protect them for added security. The application also 
+      integrates an intelligent document monitoring system that continuously reads expiration dates and
+      notifies users 30 days in advance, ensuring they never miss critical deadlines. Overcoming 
+      challenges such as implementing real-time file security, handling large data processing, and 
+      ensuring responsive UI, the project utilized scalable Firebase solutions, dynamic front-end design, 
+      and efficient background job scheduling. By simplifying file organization and enhancing security, 
+      Docomo empowers users to manage their digital assets with confidence and ease, resolving daily 
+      frustrations and improving productivity.`,
     image:
-      "https://www.figma.com/community/resource/828a9d1f-a4d2-462b-be2d-6226ba5d2cd7/thumbnail",
+      "/Projects/Docomo/image_08.png",
     images: [
-      "https://img.freepik.com/free-photo/abstract-nature-painted-with-watercolor-autumn-leaves-backdrop-generated-by-ai_188544-9806.jpg?semt=ais_hybrid",
-      "https://static.vecteezy.com/system/resources/thumbnails/023/533/570/small_2x/generative-ai-psychedelic-space-banner-template-in-anime-manga-line-art-style-horizontal-illustration-of-the-future-landscape-with-mountains-planets-trees-moon-surrealist-escapism-concept-photo.jpg",
-      "https://images.joseartgallery.com/100736/what-kind-of-art-is-popular-right-now.jpg",
-      "https://media.gq-magazine.co.uk/photos/651eb6be4b89a18145783f1f/16:9/w_2560%2Cc_limit/GQ_OCTOBER_SOCIAL_ONLINE_Header_2.jpg"
+      "/Projects/Docomo/image_01.png",
+      "/Projects/Docomo/image_02.png",
+      "/Projects/Docomo/image_03.png",
+      "/Projects/Docomo/image_04.png",
+      "/Projects/Docomo/image_05.png",
+      "/Projects/Docomo/image_06.png",
+      "/Projects/Docomo/image_07.png",
+      "/Projects/Docomo/image_08.png",
+      "/Projects/Docomo/image_09.png",
+      "/Projects/Docomo/image_10.png",
+      "/Projects/Docomo/image_11.png",
+      "/Projects/Docomo/image_12.png",
+      "/Projects/Docomo/image_13.png",
+      "/Projects/Docomo/image_14.png",
+      "/Projects/Docomo/image_15.png",
     ],
     tags: [
       {
-        name: "Docker",
-        logo: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-512.png",
+        name: "Next JS",
+        logo: "https://www.svgrepo.com/show/354113/nextjs-icon.svg",
       },
       {
-        name: "AWS",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      },
-      {
-        name: "DuckDNS",
-        logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png",
-      },
-      {
-        name: "Eslint",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e3/ESLint_logo.svg",
-      },
-      {
-        name: "Husky",
-        logo: "https://avatars.githubusercontent.com/u/20225463?s=200&v=4",
-      },
-      {
-        name: "CI/CD",
-        logo: "https://www.mabl.com/hubfs/CICDBlog.png",
-      },
-      {
-        name: "React Js",
+        name: "React JS",
         logo: "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
       },
       {
-        name: "MongoDb",
-        logo: "https://www.svgrepo.com/show/331488/mongodb.svg",
+        name: "Firebase",
+        logo: "https://img.icons8.com/?size=512&id=62452&format=png",
       },
       {
-        name: "Node Js",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+        name: "Next Auth",
+        logo: "https://next-auth.js.org/img/logo/logo-sm.png",
       },
       {
-        name: "Express Js",
-        logo: "https://img.icons8.com/color/512/express-js.png",
+        name: "Tesseract JS",
+        logo: "https://ubuntuhandbook.org/wp-content/uploads/2021/12/tesseract-icon.webp",
       },
       {
-        name: "Redux",
-        logo: "https://static-00.iconduck.com/assets.00/redux-icon-1024x971-2ocv6rm8.png",
+        name: "Nodemailer",
+        logo: "https://repository-images.githubusercontent.com/1272424/d1995000-0ab7-11ea-8ed3-04a082c36b0d",
+      },
+      {
+        name: "Framer Motion",
+        logo: "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
+      },
+      {
+        name: "Daisyui",
+        logo: "https://daisyui.com/favicon.ico",
+      },
+      {
+        name: "Jest",
+        logo: "https://static-00.iconduck.com/assets.00/jest-icon-1855x2048-ifiupldr.png",
       },
     ],
     category: "web app",
-    github: "https://github.com/rishavchanda/Trackify",
-    webapp: "https://trackify.duckdns.org",
+    github: "https://github.com/clevereverdev/Documo",
+    hosted: "docomo-399203.web.app",
     member: [
       {
-        name: "Rishav Chanda",
-        img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-        linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-        github: "https://github.com/rishavchanda/",
-      },
-      {
-        name: "Upasana Chaudhuri",
-        img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-        linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-        github: "https://github.com/upasana0710",
+        name: "Amritvir Randhawa",
+        img: "https://avatars.githubusercontent.com/u/179989165?v=4",
+        linkedin: "https://www.linkedin.com/in/asrandhawa2/",
+        github: "https://github.com/codezzoom/",
       },
     ],
-    zipFileUrl: "https://drive.google.com/file/d/1BYQRxCJdbxUVThpLmrHA1Yesj0UKFcWH/view?usp=sharing",
-    videoUrl: "https://www.youtube.com/embed/0PfErHA3zzQ?si=Uzp8tpp4UDV4Umoz",
-    similarProjects: [0, 1, 4, 8], // IDs of related projects
+    zipFileUrl: "https://drive.google.com/file/d/11OXzjK4e-o-LG86mtmYT0nZY6r6UeLGS/view?usp=sharing",
+    // videoUrl: "https://www.youtube.com/embed/0PfErHA3zzQ?si=Uzp8tpp4UDV4Umoz",
+    similarProjects: [1, 2], // IDs of related projects
   },
-  {
-    id: 0,
-    title: "Podstream",
-    date: "Apr 2023 - May 2023",
-    description:
-      "Developed a full-stack web application that allows users to search for, play, and pause their favorite podcasts on demand and create podcasts. Implemented user authentication using Google Auth and Jwt Auth, made responsive user interface with React JS that provides users with a seamless experience across all devices. Practiced agile methodologies to optimize team efficiency and communication.",
-    image:
-      "https://cdn.dribbble.com/users/2168386/screenshots/16741029/media/62b3b523a2d48e7b0eae7ae049306579.png?resize=400x300&vertical=center",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
-    category: "web app",
-    github: "https://github.com/rishavchanda/Podstream",
-    webapp: "https://podstream.netlify.app/",
-    member: [
-      {
-        name: "Rishav Chanda",
-        img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-        linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-        github: "https://github.com/rishavchanda/",
-      },
-      {
-        name: "Upasana Chaudhuri",
-        img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-        linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-        github: "https://github.com/upasana0710",
-      },
-    ],
-    similarProjects: [1, 3],
-  },
+
   {
     id: 1,
-    title: "Vexa",
-    date: "Oct 2022 - Present",
+    title: "Fridge - Food Expiry Tracker",
+    date: "Aug 2022 - Dec 2022",
     description:
-      "Designed and developed the Vexa project, a project management app that helps users and teams stay organized and on track. Implemented key features such as task tracking, team collaboration, and time tracking to improve productivity and project outcomes and also invite team/project members. The plan is to add a community of users where they can find developers and other team members and chat system implementation.",
+      `Fridge is an innovative food tracking web application was designed to address common 
+       challenges faced by households and students alike, the app offers a seamless way to monitor 
+       food inventory, reduce food waste, and manage budgets effectively. Fridge allows users to track 
+       food items remotely, providing real-time updates on what’s still good, nearing expiration, or
+       already expired. By leveraging this information, users can make informed decisions, such as 
+       utilizing expiring items before they go bad or avoiding unnecessary grocery purchases. This 
+       not only minimizes food waste but also helps users understand the financial impact of waste by
+       displaying how much money could have been saved.
+       Developing Fridge came with its own set of challenges, such as implementing dynamic 
+       notifications for expiring items and creating an intuitive interface that encourages 
+       regular use. The team overcame these hurdles by integrating robust database solutions and 
+       designing user-friendly features like smart sorting and personalized alerts. Through these 
+       efforts, Fridge aims to tackle the daily struggles of food tracking and budgeting, offering 
+       a practical solution to promote sustainability and financial mindfulness.`,
     image:
-      "https://user-images.githubusercontent.com/64485885/234916413-96296f13-fe4b-4cc4-b215-e72bd7c27928.png",
+      "/Projects/Fridge/image_01.png",
+    images: [
+      "/Projects/Fridge/image_01.png",
+      "/Projects/Fridge/image_02.png",
+      "/Projects/Fridge/image_03.png",
+      "/Projects/Fridge/image_04.png",
+      "/Projects/Fridge/image_05.png",
+      "/Projects/Fridge/image_06.png",
+      "/Projects/Fridge/image_07.png",
+      "/Projects/Fridge/image_08.png",
+      "/Projects/Fridge/image_09.png",
+      "/Projects/Fridge/image_10.png",
+      "/Projects/Fridge/image_11.png",
+      "/Projects/Fridge/image_12.png",
+      "/Projects/Fridge/image_13.png",
+      "/Projects/Fridge/image_14.png",
+      "/Projects/Fridge/image_15.png",
+    ],
     tags: [
-      "React Js",
-      "MongoDb",
-      "Node Js",
-      "Express Js",
-      "Redux",
-      "NodeMailer",
+      {
+        name: "Python",
+        logo: "https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png",
+      },
+      {
+        name: "Django",
+        logo: "https://img.icons8.com/color/512/django.png",
+      },
+      {
+        name: "SQLite",
+        logo: "https://static-00.iconduck.com/assets.00/sqlite-icon-2048x909-7nkrc3bm.png",
+      },
+      {
+        name: "JavaScript",
+        logo: "https://cdn.worldvectorlogo.com/logos/logo-javascript.svg",
+      },
+      {
+        name: "HTML",
+        logo: "https://cdn.iconscout.com/icon/free/png-256/free-html-5-logo-icon-download-in-svg-png-gif-file-formats--programming-langugae-language-pack-logos-icons-1175208.png?f=webp",
+      },
+      {
+        name: "CSS",
+        logo: "https://cdn-icons-png.flaticon.com/512/732/732190.png",
+      },
+      {
+        name: "Shell",
+        logo: "https://img.icons8.com/color/512/bash.png",
+      },
     ],
     category: "web app",
-    github: "https://github.com/rishavchanda/Project-Management-App",
-    webapp: "https://vexa-app.netlify.app/",
-  },
-  {
-    id: 2,
-    title: "Brain Tumor Detection",
-    date: "Jan 2023 - Mar 2023",
-    description:
-      "Preprocessed and augmented the dataset to improve model accuracy, trained the model, created API using model and Python, and used React web app for the project's front end. Achievements: Achieved an accuracy of 99.2% to accurately detect brain tumors from medical images.",
-    image:
-      "https://cdn.dribbble.com/userupload/9816622/file/original-f61f090182b0914849fe0708b1b5f460.png?resize=400x300",
-    tags: ["Python", "Keras", "TensorFlow", "VGG16", "Pickle", "React"],
-    category: "machine learning",
-    github: "https://github.com/rishavchanda/Brain-Tumor-Detection",
-    webapp: "https://brain-tumor.netlify.app/",
+    github: "https://github.com/ChicoState/fridge",
+    // hosted: "docomo-399203.web.app",
     member: [
       {
-        name: "Rishav Chanda",
-        img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-        linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-        github: "https://github.com/rishavchanda/",
+        name: "Amritvir Randhawa",
+        img: "https://avatars.githubusercontent.com/u/179989165?v=4",
+        linkedin: "https://www.linkedin.com/in/asrandhawa2/",
+        github: "https://github.com/codezzoom/",
       },
       {
-        name: "Upasana Chaudhuri",
-        img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-        linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-        github: "https://github.com/upasana0710",
+        name: "Karandeep Dhillon",
+        img: "https://avatars.githubusercontent.com/u/89750122?v=4",
+        linkedin: "https://www.linkedin.com/in/karandeep-dhillon-2866321ba/",
+        github: "https://github.com/ksdhillon1",
+      },
+      {
+        name: "Andrew Moskowitz",
+        img: "https://avatars.githubusercontent.com/u/107711050?v=4",
+        linkedin: "https://www.linkedin.com/in/andrew-m-moskowitz/",
+        github: "https://github.com/ThatOneGuy-96",
       },
     ],
-  },
-  {
-    id: 3,
-    title: "Buckoid",
-    date: "Dec 2021 - Apr 2022",
-    description:
-      "App Is Currently In Playstore 100+ Downloads. This Project proposes an “Expense Tracking App”. Keep track of your personal expenses and compare them to your monthly income with the budget planner. It has Google Drive Cloud API for Backup of User Room Database. Made with Kotlin in MVVM Architecture & Live Data.",
-    image:
-      "https://cdn.dribbble.com/userupload/10618987/file/original-d0b404cbc1d62ab96de7e57cdcd35217.png?resize=752x&vertical=center",
-    tags: ["Kotlin", "MVVM", "Room Database", "Google Drive Cloud API"],
-    category: "android app",
-    github: "https://github.com/rishavchanda/Buckoid-Android-App",
-    webapp: "https://play.google.com/store/apps/details?id=com.rishav.buckoid",
-  },
-  {
-    id: 10,
-    title: "Job Finding App",
-    date: "Jun 2023 - Jul 2023",
-    description:
-      "A Job Finding App made with React Native, Axios. Users can search for any job coming from API and apply there.",
-    image:
-      "https://cdn.dribbble.com/users/9329943/screenshots/18084436/dribble_shot_4x.png",
-    tags: ["React Native", "JavaScript", "Axios"],
-    category: "android app",
-    github: "https://github.com/rishavchanda/Job-finder-App",
-    webapp: "https://github.com/rishavchanda/Job-finder-App",
-  },
-  {
-    id: 4,
-    title: "Whatsapp Clone",
-    date: "Jul 2021",
-    description:
-      "A WhatsApp clone made with React JS, Firebase, and Material UI. It has Phone Authentication, Real-time Database. It has a chat room where users can chat with each other. It has a sidebar where users can see all the chat rooms and can create a new chat room. It has a login page where users can log in with their Google account.",
-    image:
-      "https://cdn.dribbble.com/userupload/11685159/file/original-0a9b53b4d72b985c600ecb35f7827cb9.png?crop=0x0-2400x1800&format=webp&resize=400x300&vertical=center",
-    tags: ["React Js", "Firebase", "Firestore", "Node JS"],
-    category: "web app",
-    github: "https://github.com/rishavchanda/Whatsapp-Clone-React-Js",
-    webapp: "https://whatsapp-clone-rishav.web.app",
-  },
-  {
-    id: 5,
-    title: "Todo Web App",
-    date: "Jun 2021",
-    description:
-      " A Todo Web App made with React JS, Redux, and Material UI. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the tasks and can create a new task. It has a calendar where users can see all the tasks on a particular date. It has a search bar where users can search for a particular task.",
-    image:
-      "https://cdn.dribbble.com/userupload/4399499/file/original-a752c1b962bbb96ef2d514cbefdb87fe.png?resize=400x0",
-    tags: ["React Js", "Local Storage", "AWS Auth", "Node JS"],
-    category: "web app",
-    github: "https://github.com/rishavchanda/Todo-Web-App",
-    webapp: "https://rishav-react-todo.netlify.app/",
-  },
-  {
-    id: 6,
-    title: "Breaking Bad",
-    date: "Jun 2021",
-    description:
-      "A simple react app that shows the characters of the famous TV series Breaking Bad. It uses the Breaking Bad API to fetch the data. It also has a search bar to search for a particular character.",
-    image:
-      "https://cdn.dribbble.com/users/5074043/screenshots/11075955/media/83943cc230b52ad1d6ff466c482e9b11.jpg?resize=400x0",
-    tags: ["React Js", "API", "Axios", "Node JS"],
-    category: "web app",
-    github: "https://github.com/rishavchanda/Breaking-Bad",
-    webapp: "https://breaking-bad-webapp.netlify.app",
-  },
-  {
-    id: 7,
-    title: "Quiz App",
-    date: "Dec 2020 - Jan 2021",
-    description:
-      "A android quiz app made with Java and Firebase. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the quiz categories and can create a new quiz. It has a leaderboard where users can see the top 10 scorers. It has a search bar where users can search for a particular quiz.",
-    image:
-      "https://cdn.dribbble.com/users/3041390/screenshots/15653050/shoot__2__4x.png",
-    tags: ["Java", "Android Studio", "Firebase", "Google Auth"],
-    category: "android app",
-    github: "https://github.com/rishavchanda/Quiz-Earn",
-    webapp: "https://github.com/rishavchanda/Quiz-Earn",
-  },
-  {
-    id: 8,
-    title: "Face Recognition",
-    date: "Jan 2021",
-    description:
-      "A Face recognition python app made with OpenCV. It uses face_recognition library to detect faces. It uses the webcam to detect faces. It also has a search bar to search for a particular face.",
-    image:
-      "https://cdn.dribbble.com/users/2565981/screenshots/9117843/media/26691fabec072626306cd8cd7f2414ae.png?resize=400x0",
-    tags: ["Python", "Keras", "TensorFlow", "VGG16", "Pickle", "React"],
-    category: "machine learning",
-    github: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
-    webapp: "https://github.com/rishavchanda/Face-Recodnition-AI-with-Python",
+    zipFileUrl: "https://drive.google.com/file/d/1l739M4yhBaj863ChR1inCF1s8hzsDQ3y/view?usp=sharing",
+    videoUrl: "/Projects/Fridge/video.mp4",
+    similarProjects: [0, 2], // IDs of related projects
   },
 ];
 

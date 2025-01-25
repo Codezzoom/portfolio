@@ -38,12 +38,8 @@ const tailwindConfig = {
     extend: {
       colors: {
         primary: "#213555",
-        // primary: "#2A3F3A",
         secondary: "#B8C1EC",
-        blue: '#232946',
-        pink: '#EEBBC3',
         violet: '#B8C1EC',
-        accent: "#F13024",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
@@ -94,7 +90,9 @@ const tailwindConfig = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    // require('@tailwindcss/line-clamp')
+  ],
 };
 
 export default tailwindConfig;

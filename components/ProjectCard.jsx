@@ -44,7 +44,7 @@ const ProjectCard = ({ project, index, setOpenModal }) => {
         </div>
 
         {/* Project Date */}
-        <div className="text-xs font-normal text-gray-500 transform">
+        <div className="text-xs font-normal text-white opacity-45 transform">
           {project.date}
         </div>
 

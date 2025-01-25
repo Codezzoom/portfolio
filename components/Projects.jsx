@@ -28,7 +28,7 @@ const Projects = ({ openModal, setOpenModal }) => {
         {/* Description */}
         <div className="text-sm text-center max-w-lg text-gray-300 sm:text-xs">
           <p>
-            I have worked on a wide range of projects. From web apps to android
+            I have worked on a wide range of projects. From web apps to mobile
             apps.
           </p>
           <p>Here are some of my projects.</p>
@@ -37,7 +37,7 @@ const Projects = ({ openModal, setOpenModal }) => {
         {/* Toggle Button Group */}
         <div className="flex items-center justify-center border border-secondary text-secondary text-sm font-medium rounded-lg m-5 md:text-xs">
           {/* Toggle Buttons */}
-          {["all", "web app", "android app", "machine learning", "games"].map(
+          {["all", "web apps", "mobile apps", "artificial intelligence", "games"].map(
             (category, index) => (
               <React.Fragment key={category}>
                 <div

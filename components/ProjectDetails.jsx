@@ -384,7 +384,7 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
                       {/* Member Info */}
                       <div className="flex-1">
                         <p className="text-md font-semibold text-gray-200">
-                          {member.github.split("/").pop()}{" "}
+                          {member.github.split("/")[3]}
                           {/* GitHub Username */}
                         </p>
                         <p className="text-sm text-gray-400">{member.name}</p>{" "}
@@ -423,7 +423,7 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
               {/* Loader */}
               {!similarProjects.length ? (
                 <div className="flex justify-center items-center h-32">
-                  <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-purple-500"></div>
+                  <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-violet"></div>
                 </div>
               ) : (
                 /* Horizontal Scroll Container */
@@ -458,12 +458,21 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
               >
                 View Code
               </button>
-              <button
-                onClick={() => window.open(project?.webapp, "_blank")}
+              {project?.hosted && (
+                <button
+                onClick={() => {
+                  const hostedUrl = project?.hosted;
+                  // Use only the hosted domain and ensure it's properly formatted
+                  const formattedUrl = hostedUrl.startsWith("http")
+                    ? hostedUrl
+                    : `https://${hostedUrl}`;
+                  window.open(formattedUrl, "_blank");
+                }}
                 className="text-center text-[16px] font-bold text-gray-200 bg-[#1C3EE4] py-4 px-4 rounded-md hover:bg-indigo-700 transition-colors w-full"
               >
                 Live Preview
               </button>
+              )}
             </div>
           </div>
         </div>

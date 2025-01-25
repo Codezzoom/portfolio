@@ -1,15 +1,34 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import countryCodes from "@/data/Contact";
 import { Upload, Phone, Mail, HelpCircle, ChevronDown, X } from "lucide-react";
 
 const Contact = () => {
-  const [selectedCountry, setSelectedCountry] = useState(countryCodes[0]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [files, setFiles] = useState([]);
   const [error, setError] = useState("");
-
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(countryCodes[0]);
+
+  // Validate form data
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    idea: "",
+  });
+
+  // Form errors
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    idea: "",
+  });
 
   const topCountries = countryCodes.slice(0, 3); // Top 3 countries
   const filteredCountries = countryCodes.filter((country) =>
@@ -29,7 +48,6 @@ const Contact = () => {
     const validFiles = [];
     let validationError = "";
 
-    // Check total file count
     if (files.length + selectedFiles.length > 3) {
       validationError = "You can only upload up to 3 files.";
     } else {
@@ -54,23 +72,6 @@ const Contact = () => {
   const removeFile = (index) => {
     setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
-
-  // Validate form data
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    idea: "",
-  });
-
-  const [formErrors, setFormErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    idea: "",
-  });
 
   // Validate email
   const validateEmail = (email) => {
@@ -113,6 +114,101 @@ const Contact = () => {
       validateEmail(formData.email) &&
       formData.idea.trim() !== ""
     );
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(",")[1]); // Get the base64 content
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!isFormValid()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Convert files to Base64
+      const attachments =
+        files.length > 0
+          ? await Promise.all(
+              files.map(async (file) => {
+                const base64 = await convertToBase64(file);
+                return {
+                  name: file.name,
+                  content: base64,
+                };
+              })
+            )
+          : [];
+
+      // Prepare email data
+      const emailData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone || "N/A",
+        idea: formData.idea,
+        attachments, // Optional attachments
+      };
+
+      // Send email via API route
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (response.ok) {
+        toast.success("Email sent successfully!", {
+          position: "top-center",
+          autoClose: 3000, // Close after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: "bg-violet text-primary", // Custom class for styling
+          // theme: "colored",
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          idea: "",
+        });
+        setFiles([]);
+      } else {
+        const errorData = await response.json();
+        console.error("Error sending email:", errorData);
+        toast.error("Failed to send email!", {
+          position: "top-center",
+          autoClose: 3000, // Close after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to send email. Please try again.", {
+        position: "top-center",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -324,7 +420,7 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              <motion.div className="relative">
+              <div className="relative w-full">
                 <motion.textarea
                   id="idea"
                   value={formData.idea}
@@ -335,14 +431,17 @@ const Contact = () => {
                   rows={4}
                   className="w-full pb-1 pt-2 border-b-2 border-gray-200 focus:border-emerald-400 outline-none bg-transparent transition-colors peer resize-none text-gray-300"
                 />
-                <label className="absolute left-0 top-4 text-gray-400 transition-all peer-focus:-top-1 peer-focus:text-sm peer-focus:text-emerald-400 peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-sm peer-placeholder-shown:text-[14px]">
+                <label
+                  htmlFor="idea"
+                  className="absolute left-0 top-4 text-gray-400 transition-all peer-focus:-top-1 peer-focus:text-sm peer-focus:text-emerald-400 peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-sm peer-placeholder-shown:text-[14px]"
+                >
                   Let's talk about your idea{" "}
                   <span className="text-red-500">*</span>
                 </label>
                 {formErrors.idea && (
                   <p className="text-red-500 text-sm">{formErrors.idea}</p>
                 )}
-              </motion.div>
+              </div>
 
               <div>
                 {/* Upload Box */}
@@ -397,14 +496,15 @@ const Contact = () => {
               <motion.button
                 whileHover={{ scale: isFormValid() ? 1.02 : 1 }}
                 whileTap={{ scale: isFormValid() ? 0.98 : 1 }}
-                disabled={!isFormValid()}
+                disabled={!isFormValid() || isSubmitting}
+                onClick={handleSubmit}
                 className={`w-full py-4 rounded-lg font-extrabold ${
                   isFormValid()
                     ? "bg-gradient-to-r from-[#38598f] to-[#22375a] text-gray-200 cursor-pointer"
                     : "bg-gradient-to-r from-[#38598f] to-[#22375a] text-gray-200 cursor-not-allowed"
                 }`}
               >
-                Submit
+                {isSubmitting ? "Sending..." : "Submit"}
               </motion.button>
             </form>
 
