@@ -4,8 +4,6 @@ import HeaderSmall from "./HeaderSmall";
 import Button from "./Button";
 import { useRouter } from "next/router";
 import ParticlesContainer from "./ParticlesContainer";
-import { fadeIn } from "@/variants";
-import Avatar from "./Avatar";
 import SocialBar from "./SocialBar";
 import Cookies from "./Cookies";
 import titan from "@/font/titan";
@@ -64,7 +62,7 @@ const HeroSection = () => {
       /> */}
 
       {/* Cookies Component */}
-      {/* <Cookies /> */}
+      <Cookies />
 
       {/* Particles */}
       {/* <ParticlesContainer className="absolute inset-0 z-10 pointer-events-none" /> */}
@@ -81,9 +79,9 @@ const HeroSection = () => {
       {/* Content Section */}
       <div id="home" className="relative z-20 mt-28">
         <motion.div
-          transition={config}
-          initial={{ scale: 0.3, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, transitionDuration: "0.2s" }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 3, ease: "linear" }}
           exit={{ x: 0, opacity: 0 }}
         >
           <div className="grid grid-cols-12 gap-4 h-84.5vh ml-4 sm:mx-12 md:mx-16">
@@ -97,10 +95,11 @@ const HeroSection = () => {
                   Amrit
                 </h1>
                 <h5 className="text-7xl font-normal text-gray-200 text-justify font-sans">
-                  "A fresher with experience" —this line defines me. As a
-                  skilled web and mobile app developer, I craft beautiful and
-                  impactful digital solutions, blending technical expertise with
-                  creative problem-solving to stand out from the crowd.
+                  "An aspiring developer with hands-on experience" —this line
+                  defines me. As a skilled web and mobile app developer, I craft
+                  beautiful and impactful digital solutions, blending technical
+                  expertise with creative problem-solving to stand out from the
+                  crowd.
                 </h5>
                 <div className="grid sm:grid-cols-2 md:grid-cols-none xl:grid-cols-2 gap-8 mt-6">
                   <div className="sm:col-span-1 xl:col-span-1">
@@ -124,18 +123,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Avatar Section */}
-      <motion.div
-        variants={fadeIn("up", 0.5)}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-        transition={{ duration: 1, ease: "easeInOut" }}
-        className="absolute w-full max-w-[737px] max-h-[678px] bottom-2 right-[5%] z-20"
-      >
-        {/* <Avatar /> */}
-      </motion.div>
     </div>
   );
 };

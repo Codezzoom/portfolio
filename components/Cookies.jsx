@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Titan_One } from "next/font/google";
 import Link from "next/link";
@@ -12,7 +12,6 @@ const titan = Titan_One({
 
 const Cookies = () => {
   const [showAlert, setShowAlert] = useState(false);
-  const vibrationControls = useAnimation();
 
   const handleCookiesAlert = (accepted) => {
     setShowAlert(false);
@@ -20,7 +19,7 @@ const Cookies = () => {
       acceptedCookies: accepted,
       askAgainDate: accepted
         ? null // user accepted cookies, no need to ask again
-        : new Date().getTime() + 1000 * 60 * 60 * 24 * 5, // current time + 5 days
+        : new Date().getTime() + 1000 * 60 * 60 * 24 * 1, // current time + 1 day
     };
     localStorage.setItem("cookieObject", JSON.stringify(cookiePreferencesObj));
   };
@@ -37,20 +36,6 @@ const Cookies = () => {
     }
   }, []);
 
-  // Trigger vibration every 10 seconds
-  useEffect(() => {
-    if (showAlert) {
-      const interval = setInterval(() => {
-        vibrationControls.start({
-          x: [-16, 16, -16, 16, 0],
-          transition: { duration: 0.5 },
-        });
-      }, 10000);
-
-      return () => clearInterval(interval);
-    }
-  }, [showAlert, vibrationControls]);
-
   return (
     <motion.div
       key="cookieAlertComponent"
@@ -63,10 +48,7 @@ const Cookies = () => {
       }}
       transition={{ type: "spring", duration: 1 }}
     >
-      <motion.div
-        className="bg-violet px-4 py-2 rounded-full shadow-lg flex items-center justify-between text-black"
-        animate={vibrationControls}
-      >
+      <div className="bg-violet px-4 py-2 rounded-full shadow-lg flex items-center justify-between text-black">
         <div className="flex items-center">
           <Image
             src={"/cookies.png"}
@@ -96,18 +78,18 @@ const Cookies = () => {
         <div className="flex gap-2">
           <button
             onClick={() => handleCookiesAlert(true)}
-            className="px-10 py-3 bg-blue text-violet rounded-full hover:bg-[#373c58] transition-colors text-sm font-bold"
+            className="px-10 py-3 bg-primary text-violet rounded-full hover:bg-transparent hover:text-primary border-2 border-primary hover:border-primary transition-colors text-sm font-bold"
           >
             Allow all
           </button>
           <button
             onClick={() => handleCookiesAlert(false)}
-            className="px-10 py-3 bg-transparent border-2 border-blue text-blue hover:text-violet rounded-full hover:bg-blue transition-colors text-sm font-bold"
+            className="px-10 py-3 bg-transparent border-2 border-primary text-blue hover:text-violet rounded-full hover:bg-primary transition-colors text-sm font-bold"
           >
             Decline
           </button>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

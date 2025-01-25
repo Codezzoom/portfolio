@@ -70,9 +70,8 @@ function Home() {
             </div>
           </div>
 
-          {/* Footer */}          
-            <Footer />
-
+          {/* Footer */}
+          <Footer />
 
           {/* Project Details Modal */}
           {openModal.state && (
