@@ -275,7 +275,7 @@ const Contact = () => {
                   />
                   <label
                     htmlFor="lastName"
-                    className="absolute left-0 top-4 text-gray-400 transition-all peer-focus:-top-1 peer-focus:text-sm peer-focus:text-emerald-400 peer-placeholder-shown:text-[14px]"
+                    className="absolute left-0 top-4 text-gray-400 transition-all peer-focus:-top-1 peer-focus:text-sm peer-focus:text-emerald-400 peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-sm peer-placeholder-shown:text-[14px]"
                   >
                     Last Name <span className="text-red-500">*</span>
                   </label>
