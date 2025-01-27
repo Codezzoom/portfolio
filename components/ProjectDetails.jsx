@@ -202,13 +202,13 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
                 {project?.images?.map((image, index) => (
                   <div
                     key={index}
-                    className="absolute w-[500px] h-[300px] transition-transform duration-700 ease-in-out"
+                    className="absolute w-[200px] h-[100px] xl:w-[500px] xl:h-[300px] lg:w-[500px] lg:h-[300px] transition-transform duration-700 ease-in-out"
                     style={getImageStyle(index)}
                   >
                     <img
                       src={image}
                       alt={`${project?.title} - Slide ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="xl:w-full xl:h-full lg:w-full lg:h-full h-[100px] w-[300px] object-cover"
                       style={{ borderRadius: "inherit" }}
                     />
                   </div>
@@ -233,7 +233,7 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
             </div>
 
             {/* Title with Download Button */}
-            <div className="flex items-center gap-4 mt-6 px-6">
+            <div className="flex items-center flex-wrap xl:flex-nowrap lg:flex-nowrap gap-4 m-6 px-6">
               <h1
                 id="project-title"
                 className="text-2xl font-black text-gray-200"
@@ -326,7 +326,7 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
             {/* Project Description */}
             <div className="px-6 mt-4">
               <h2 className="text-xl font-bold text-gray-200">Description</h2>
-              <p className="text-[14px] text-gray-300 mt-2 whitespace-pre-line">
+              <p className="text-[14px] text-gray-300 mt-2">
                 {project?.description}
               </p>
             </div>
@@ -454,24 +454,24 @@ const ProjectDetails = ({ openModal, setOpenModal, projects }) => {
             <div className="flex gap-4 mt-8 px-6 pb-6">
               <button
                 onClick={() => window.open(project?.github, "_blank")}
-                className="text-center text-[16px] font-bold text-gray-200 bg-gray-700 py-4 px-4 rounded-md hover:bg-gray-600 transition-colors w-full"
+                className="text-center text-[12px] xl:text-[16px] font-bold text-gray-200 bg-gray-700 py-4 px-4 rounded-md hover:bg-gray-600 transition-colors w-full"
               >
                 View Code
               </button>
               {project?.hosted && (
                 <button
-                onClick={() => {
-                  const hostedUrl = project?.hosted;
-                  // Use only the hosted domain and ensure it's properly formatted
-                  const formattedUrl = hostedUrl.startsWith("http")
-                    ? hostedUrl
-                    : `https://${hostedUrl}`;
-                  window.open(formattedUrl, "_blank");
-                }}
-                className="text-center text-[16px] font-bold text-gray-200 bg-[#1C3EE4] py-4 px-4 rounded-md hover:bg-indigo-700 transition-colors w-full"
-              >
-                Live Preview
-              </button>
+                  onClick={() => {
+                    const hostedUrl = project?.hosted;
+                    // Use only the hosted domain and ensure it's properly formatted
+                    const formattedUrl = hostedUrl.startsWith("http")
+                      ? hostedUrl
+                      : `https://${hostedUrl}`;
+                    window.open(formattedUrl, "_blank");
+                  }}
+                  className="text-center text-[12px] xl:text-[16px] font-bold text-gray-200 bg-[#1C3EE4] py-4 px-4 rounded-md hover:bg-indigo-700 transition-colors w-full"
+                >
+                  Live Preview
+                </button>
               )}
             </div>
           </div>

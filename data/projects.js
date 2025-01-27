@@ -51,6 +51,10 @@ const projects = [
         logo: "https://img.icons8.com/?size=512&id=62452&format=png",
       },
       {
+        name: "Tailwind CSS",
+        logo: "https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png",
+      },
+      {
         name: "Next Auth",
         logo: "https://next-auth.js.org/img/logo/logo-sm.png",
       },
@@ -127,7 +131,6 @@ const projects = [
       "/Projects/Fridge/image_12.png",
       "/Projects/Fridge/image_13.png",
       "/Projects/Fridge/image_14.png",
-      "/Projects/Fridge/image_15.png",
     ],
     tags: [
       {
@@ -185,6 +188,84 @@ const projects = [
     zipFileUrl: "https://drive.google.com/file/d/1l739M4yhBaj863ChR1inCF1s8hzsDQ3y/view?usp=sharing",
     videoUrl: "/Projects/Fridge/video.mp4",
     similarProjects: [0, 2], // IDs of related projects
+  },
+
+  {
+    id: 2,
+    title: "Portfolio",
+    date: "Jan 2025 - Jan 2025",
+    new: true,
+    description:
+      `Welcome to my portfolio, a responsive and interactive showcase of my skills, experience, and 
+       projects designed for all screen sizes. The Home page features a modern design with engaging 
+       animations powered by Framer Motion, while the Skills section uses a 3D library to display 
+       dynamic, interactive skill balls. My Experience and Education are presented in a clean, 
+       timeline-style layout, detailing my journey with smooth transitions. The Projects section 
+       highlights my work with detailed descriptions and visually appealing cards, showcasing the 
+       technologies used. The Contact page, integrated with the Nodemailer API, allows easy 
+       communication, and the Footer ties everything together. This portfolio combines creativity and
+       functionality to leave a lasting impression.`,
+    image:
+      "/Projects/Portfolio/image_01.png",
+    images: [
+      "/Projects/Portfolio/image_01.png",
+      "/Projects/Portfolio/image_02.png",
+      "/Projects/Portfolio/image_03.png",
+      "/Projects/Portfolio/image_04.png",
+      "/Projects/Portfolio/image_05.png",
+      "/Projects/Portfolio/image_06.png",
+      "/Projects/Portfolio/image_07.png",
+      "/Projects/Portfolio/image_08.png",
+      "/Projects/Portfolio/image_09.png",
+      "/Projects/Portfolio/image_10.png",
+      "/Projects/Portfolio/image_11.png",
+      "/Projects/Portfolio/image_12.png",
+      "/Projects/Portfolio/image_13.png",
+    ],
+    tags: [
+      {
+        name: "Next JS",
+        logo: "https://www.svgrepo.com/show/354113/nextjs-icon.svg",
+      },
+      {
+        name: "React JS",
+        logo: "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+      },
+      {
+        name: "JavaScript",
+        logo: "https://cdn.worldvectorlogo.com/logos/logo-javascript.svg",
+      },
+      {
+        name: "Framer Motion",
+        logo: "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png",
+      },
+      {
+        name: "Three JS",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/800px-Three.js_Icon.svg.png",
+      },
+      {
+        name: "Nodemailer",
+        logo: "https://repository-images.githubusercontent.com/1272424/d1995000-0ab7-11ea-8ed3-04a082c36b0d",
+      },
+    ],
+    category: "web app",
+    github: "https://github.com/Codezzoom/portfolio",
+    // hosted: "docomo-399203.web.app",
+    member: [
+      {
+        name: "Amritvir Randhawa",
+        img: "https://avatars.githubusercontent.com/u/179989165?v=4",
+        linkedin: "https://www.linkedin.com/in/asrandhawa2/",
+        github: "https://github.com/codezzoom/",
+      },
+    ],
+    zipFileUrl: "https://drive.google.com/file/d/1L7MXSzfzHMPRAneqb1-Yd7DYtQjKuLeK/view?usp=sharing",
+    videoUrl: "/Projects/Portfolio/video.mov",
+    similarProjects: [0, 1], // IDs of related projects
   },
 ];
 

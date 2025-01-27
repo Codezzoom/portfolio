@@ -20,7 +20,7 @@ const Projects = ({ openModal, setOpenModal }) => {
       <div className="relative flex flex-col items-center justify-between w-full max-w-[1350px] gap-3 px-0 py-10 md:py-16">
         {/* Title */}
         <h2
-          className={`text-7xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
+          className={`text-4xl md:text-5xl lg:text-2xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
         >
           Projects
         </h2>
@@ -35,25 +35,29 @@ const Projects = ({ openModal, setOpenModal }) => {
         </div>
 
         {/* Toggle Button Group */}
-        <div className="flex items-center justify-center border border-secondary text-secondary text-sm font-medium rounded-lg m-5 md:text-xs">
+        <div className="flex items-center justify-center border border-secondary text-secondary text-[8px] font-medium rounded-lg m-5 md:text-xs">
           {/* Toggle Buttons */}
-          {["all", "web apps", "mobile apps", "artificial intelligence", "games"].map(
-            (category, index) => (
-              <React.Fragment key={category}>
-                <div
-                  className={`px-5 py-2 cursor-pointer rounded-md ${
-                    toggle === category
-                      ? "bg-secondary/20"
-                      : "hover:bg-secondary/10"
-                  }`}
-                  onClick={() => setToggle(category)}
-                >
-                  {category.toUpperCase()}
-                </div>
-                {index !== 3 && <div className="w-[2px] h-auto bg-secondary" />}
-              </React.Fragment>
-            )
-          )}
+          {[
+            "all",
+            "web apps",
+            "mobile apps",
+            "artificial intelligence",
+            "games",
+          ].map((category, index) => (
+            <React.Fragment key={category}>
+              <div
+                className={`px-5 py-2 cursor-pointer rounded-md ${
+                  toggle === category
+                    ? "bg-secondary/20"
+                    : "hover:bg-secondary/10"
+                }`}
+                onClick={() => setToggle(category)}
+              >
+                {category.toUpperCase()}
+              </div>
+              {index !== 3 && <div className="w-[2px] h-auto bg-secondary" />}
+            </React.Fragment>
+          ))}
         </div>
 
         {/* Project Cards */}

@@ -126,12 +126,27 @@ const Ball = ({ imgUrl, name }) => {
 const BallCanvas = ({ icon, name }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Delay hiding the hover text
+  const [showHoverText, setShowHoverText] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (isHovered) {
+      setShowHoverText(true); // Show immediately when hovered
+    } else {
+      timer = setTimeout(() => setShowHoverText(false), 300); // Delay hiding
+    }
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, [isHovered]);
+
   return (
     <motion.div
-      className="w-28 h-28 flex flex-col items-center justify-center"
+      className="w-24 h-24 sm:w-20 sm:h-20 lg:w-32 lg:h-32 flex flex-col items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* 3D Canvas */}
       <Canvas
         frameloop="always"
         dpr={[1, 2]}
@@ -143,12 +158,14 @@ const BallCanvas = ({ icon, name }) => {
         </Suspense>
         <Preload all />
       </Canvas>
-      {isHovered && (
+
+      {/* Hover Text */}
+      {showHoverText && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          className="mt-2 text-gray-300 text-sm text-center"
+          className="mt-2 text-gray-300 text-xs sm:text-sm text-center"
         >
           {name}
         </motion.div>

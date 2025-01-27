@@ -64,8 +64,6 @@ const HeroSection = () => {
       {/* Cookies Component */}
       <Cookies />
 
-      {/* Particles */}
-      {/* <ParticlesContainer className="absolute inset-0 z-10 pointer-events-none" /> */}
       <SocialBar />
       <Image
         src="/Home/ellipse.svg"

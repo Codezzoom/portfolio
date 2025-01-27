@@ -36,13 +36,10 @@ const Education = () => {
     <div
       id="education"
       className="flex flex-col justify-center relative z-[1] items-center px-0 pb-16 sm:pb-0 bg-[#1c2d4a]"
-      // style={{
-      //   clipPath: "polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)",
-      // }}
     >
       <div className="relative flex flex-col justify-between items-center w-full max-w-[1350px] py-10 gap-3 sm:flex-col">
         <h2
-          className={`text-7xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
+          className={`text-4xl md:text-5xl lg:text-2xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
         >
           Education.
         </h2>

@@ -6,8 +6,8 @@ export const experiences = [
         company: "Lasaria",
         employment_type: "Internship",
         duration: {
-            start_month: "Sep",
-            start_year: "2024",
+            start_month: "Jan",
+            start_year: "2023",
             end_month: null,
             end_year: null,
         },
@@ -44,8 +44,8 @@ export const experiences = [
         duration: {
             start_month: "Aug",
             start_year: "2020",
-            end_month: null,
-            end_year: null,
+            end_month: "Dec",
+            end_year: "2023",
         },
         location: "Yuba City, CA",
         location_type: "On-site",

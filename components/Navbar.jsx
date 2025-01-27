@@ -142,7 +142,7 @@ const Navbar = () => {
               />
             </motion.div>
           </motion.a>
-          <div className="flex md:hidden">
+          <div className="flex lg:hidden md:hidden">
             <button
               type="button"
               className="text-white focus:outline-none"
@@ -152,10 +152,9 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
         {/* Mobile Menu */}
         <motion.div
-          className={showMobileNav ? "block pt-3" : "hidden md:block"}
+          className={showMobileNav ? "block pt-3" : "hidden lg:block"}
           initial={false}
           animate={{
             height: showMobileNav ? "auto" : 0,
@@ -167,7 +166,7 @@ const Navbar = () => {
           }}
           onClick={() => setShowMobileNav(false)}
         >
-          <ul className="md:flex md:flex-row border-pink border-2 md:border-none">
+          <ul className="lg:hidden md:flex md:flex-col border-2 md:border-none">
             {navLinks.map((item, index) => (
               <NavItem
                 key={item.href}

@@ -79,10 +79,10 @@ const ExperienceCard = ({ experience, index }) => {
     >
       {/* Background Number */}
       <div
-        className={`absolute text-[220px] font-extrabold text-gray-200 pointer-events-none transition-all duration-500 ease-in-out z-20 ${
+        className={`absolute text-[120px] xl:text-[220px] lg:text-[175px] md:text-[135px] font-extrabold text-gray-200 pointer-events-none transition-all duration-500 ease-in-out z-20 ${
           expandedItems[experience.id]
-            ? "left-16 top-[144px]"
-            : "-left-[74px] -top-10"
+            ? "xl:left-16 xl:top-[144px] md:left-16 md:top-[186px] -left-[44px] top-0"
+            : "xl:-left-[74px] xl:-top-10 -left-[44px] top-0"
         }`}
         style={{
           transform: `rotate(${randomRotationNumber}deg)`,
@@ -91,17 +91,12 @@ const ExperienceCard = ({ experience, index }) => {
         {index + 1}
       </div>
 
-      <div
-        className="w-[864px] rounded-lg shadow-xl p-8 flex flex-row gap-6 relative overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-pointer z-10 hover:opacity-80 bg-[#19263e]"
-        // style={{
-        //   transform: `rotate(${randomRotationNumber}deg)`,
-        // }}
-      >
+      <div className="flex flex-col sm:flex-row xl:w-[864px] lg:w-[748px] md:w-[624px] w-72 rounded-lg shadow-xl p-6 sm:p-8 gap-6 bg-[#19263e] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:cursor-pointer">
         <img
           ref={imgRef}
           src={experience.img}
           alt={experience.company}
-          className="h-48 w-48 bg-black sm:h-44 sm:w-44 shadow-lg object-cover"
+          className="h-48 w-48 bg-black sm:h-44 sm:w-44 shadow-lg object-cover mx-auto"
           crossOrigin="anonymous"
         />
         {/* Content Details */}
@@ -136,7 +131,7 @@ const ExperienceCard = ({ experience, index }) => {
           </div>
           <div className="w-full text-[14px] font-normal text-white mb-2 sm:text-[12px] relative">
             <motion.div
-              className="w-full text-[14px] font-normal text-[#E5E6E6]"
+              className="w-full text-[14px] font-normal text-[#E5E6E6] relative"
               initial="collapsed"
               animate={expandedItems[experience.id] ? "expanded" : "collapsed"}
               variants={{
@@ -152,8 +147,7 @@ const ExperienceCard = ({ experience, index }) => {
               {experience?.description && (
                 <span className="block overflow-hidden text-ellipsis">
                   {expandedItems[experience.id]
-                    ? // Render full description with line breaks
-                      experience?.description
+                    ? experience?.description
                         .split("•")
                         .filter((bullet) => bullet.trim()) // Remove empty entries
                         .map((bullet, index) => (
@@ -161,11 +155,10 @@ const ExperienceCard = ({ experience, index }) => {
                             • {bullet.trim()}
                           </span>
                         ))
-                    : // Render truncated description with filtered bullet points
-                      experience?.description
+                    : experience?.description
                         .split("•")
-                        .filter((bullet) => bullet.trim()) // Remove empty entries
-                        .slice(0, 3) // Limit the number of bullet points to display when collapsed
+                        .filter((bullet) => bullet.trim())
+                        .slice(0, 3)
                         .map((bullet, index) => (
                           <span key={index} className="block">
                             • {bullet.trim()}
@@ -173,17 +166,21 @@ const ExperienceCard = ({ experience, index }) => {
                         ))}
                   {!expandedItems[experience.id] &&
                     experience?.description.split("•").length > 3 && (
-                      <span>...see more</span>
+                      <span className="text-[#A4A5A7]">...see more</span>
                     )}
                 </span>
               )}
             </motion.div>
-            <button
-              onClick={() => handleToggle(experience.id)}
-              className="absolute -bottom-1 right-0 text-[#A4A5A7] text-[14px] font-medium"
-            >
-              {expandedItems[experience.id] ? "show less" : "...see more"}
-            </button>
+
+            {/* Button Positioned Responsively */}
+            <div className="w-full flex justify-end lg:justify-start mt-2">
+              <button
+                onClick={() => handleToggle(experience.id)}
+                className="text-[#A4A5A7] text-[14px] font-medium lg:absolute lg:-bottom-4 lg:right-0"
+              >
+                {expandedItems[experience.id] ? "show less" : "...see more"}
+              </button>
+            </div>
           </div>
 
           {experience?.skills && (

@@ -17,9 +17,7 @@ const Cookies = () => {
     setShowAlert(false);
     const cookiePreferencesObj = {
       acceptedCookies: accepted,
-      askAgainDate: accepted
-        ? null // user accepted cookies, no need to ask again
-        : new Date().getTime() + 1000 * 60 * 60 * 24 * 1, // current time + 1 day
+      askAgainDate: accepted ? null : new Date().getTime() + 1000 * 60 * 1,
     };
     localStorage.setItem("cookieObject", JSON.stringify(cookiePreferencesObj));
   };
@@ -39,7 +37,7 @@ const Cookies = () => {
   return (
     <motion.div
       key="cookieAlertComponent"
-      className="fixed bottom-8 right-2 transform -translate-x-1/2 z-40 max-w-5xl w-full px-6"
+      className="fixed bottom-4 md:bottom-8 left-12 right-2 md:right-2 md:left-auto transform md:-translate-x-1/2 z-40 max-w-5xl w-auto md:px-6"
       initial={{ x: "100%" }}
       animate={{
         x: "0",
@@ -48,23 +46,25 @@ const Cookies = () => {
       }}
       transition={{ type: "spring", duration: 1 }}
     >
-      <div className="bg-violet px-4 py-2 rounded-full shadow-lg flex items-center justify-between text-black">
-        <div className="flex items-center">
+      <div className="bg-violet px-3 md:px-4 py-4 md:py-2 rounded-2xl md:rounded-full shadow-lg flex flex-col md:flex-row items-center justify-between text-black gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center text-center md:text-left w-full md:w-auto">
           <Image
-            src={"/cookies.png"}
-            width={60}
-            height={60}
+            src="/cookies.png"
+            width={50}
+            height={50}
             alt="Cookie Icon"
-            className="mr-4"
+            className="mb-2 md:mb-0 md:mr-4 w-12 md:w-[60px]"
           />
           <div className="max-w-xl">
-            <h2 className={`text-xl font-black ${titan.className}`}>Cookie?</h2>
-            <p className="text-[13px]">
+            <h2 className={`text-lg md:text-xl font-black ${titan.className}`}>
+              Cookie?
+            </h2>
+            <p className="text-[11px] md:text-[13px] px-4 md:px-0 md:mr-10">
               We use cookies to optimize your browsing experience for the
               purpose of personalizing and measuring the effectiveness of ads.
               By clicking "Allow All", you consent to our use of cookies.
               <Link
-                href={"https://www.cookiesandyou.com/"}
+                href="https://www.cookiesandyou.com/"
                 className="underline font-semibold text-blue ml-1"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -75,16 +75,16 @@ const Cookies = () => {
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex xs:flex-row gap-2 md:w-auto">
           <button
             onClick={() => handleCookiesAlert(true)}
-            className="px-10 py-3 bg-primary text-violet rounded-full hover:bg-transparent hover:text-primary border-2 border-primary hover:border-primary transition-colors text-sm font-bold"
+            className="px-6 md:px-10 py-2 md:py-3 bg-primary text-violet rounded-full hover:bg-transparent hover:text-primary border-2 border-primary hover:border-primary transition-colors text-xs md:text-xs font-bold w-auto xs:w-auto"
           >
-            Allow all
+            Allow
           </button>
           <button
             onClick={() => handleCookiesAlert(false)}
-            className="px-10 py-3 bg-transparent border-2 border-primary text-blue hover:text-violet rounded-full hover:bg-primary transition-colors text-sm font-bold"
+            className="px-6 md:px-10 py-2 md:py-3 bg-transparent border-2 border-primary text-blue hover:text-violet rounded-full hover:bg-primary transition-colors text-xs md:text-xs font-bold w-auto xs:w-auto"
           >
             Decline
           </button>

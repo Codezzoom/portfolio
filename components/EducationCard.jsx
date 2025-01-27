@@ -6,7 +6,7 @@ import { BookOpen } from "lucide-react"; // Importing a book icon from Lucide or
 const EducationCard = ({ education }) => {
   return (
     <motion.div
-      className="group w-[864px] rounded-lg bg-[#19263e] shadow-xl shadow-[rgba(0,0,0,0.4)] p-8 flex flex-col gap-3 relative overflow-visible transition-all duration-300 ease-in-out hover:cursor-pointer"
+      className="group xl:w-[864px] w-[324px] lg:w-[864px] md:w-[624px] rounded-lg bg-[#19263e] shadow-xl shadow-[rgba(0,0,0,0.4)] p-8 flex flex-col gap-3 relative overflow-visible transition-all duration-300 ease-in-out hover:cursor-pointer"
       initial="collapsed"
       whileHover="expanded"
     >

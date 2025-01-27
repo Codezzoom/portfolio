@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import skills from "../data/Skills"; // Array of skills with icons
+import skills from "../data/Skills";
 import { Titan_One } from "next/font/google";
 import BallCanvas from "./canvas/Ball";
 
@@ -51,7 +51,7 @@ const Skills = () => {
 
       <div className="flex flex-col justify-between items-center w-full max-w-5xl mt-12">
         <h2
-          className={`text-7xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
+          className={`text-4xl md:text-5xl lg:text-2xl text-center font-semibold text-secondary mt-5 sm:text-2xl ${titan.className} first-letter:text-[80px] first-letter:font-bold first-letter:text-secondary`}
         >
           Skills.
         </h2>
@@ -67,11 +67,11 @@ const Skills = () => {
         </div>
 
         {/* Skills Balls with Animation */}
-        <div className="flex flex-row flex-wrap justify-center gap-10">
+        <div className="flex flex-row flex-wrap justify-center gap-10 xl:grid xl:grid-cols-7 xl:gap-12 lg:grid lg:grid-cols-5 lg:gap-10 md:grid md:grid-cols-5 md:gap-8 sm:grid sm:grid-cols-3 sm:gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="w-28 h-28 cursor-pointer"
+              className="w-20 h-20 sm:w-16 sm:h-16 lg:w-28 lg:h-28 cursor-pointer"
               variants={dropInVariants}
               initial="hidden"
               whileInView="visible"
