@@ -49,7 +49,7 @@ const Cookies = () => {
       <div className="bg-violet px-3 md:px-4 py-4 md:py-2 rounded-2xl md:rounded-full shadow-lg flex flex-col md:flex-row items-center justify-between text-black gap-4 md:gap-0">
         <div className="flex flex-col md:flex-row items-center text-center md:text-left w-full md:w-auto">
           <Image
-            src="/cookies.png"
+            src="/Home/cookies.png"
             width={50}
             height={50}
             alt="Cookie Icon"
