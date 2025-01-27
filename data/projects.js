@@ -254,7 +254,7 @@ const projects = [
     ],
     category: "web app",
     github: "https://github.com/Codezzoom/portfolio",
-    // hosted: "docomo-399203.web.app",
+    hosted: "https://arandhawa.vercel.app/",
     member: [
       {
         name: "Amritvir Randhawa",
