@@ -7,7 +7,7 @@ export const experiences = [
         employment_type: "Internship",
         duration: {
             start_month: "Jan",
-            start_year: "2023",
+            start_year: "2024",
             end_month: null,
             end_year: null,
         },
