@@ -199,23 +199,192 @@ const ExperienceCard = ({ experience, index }) => {
                         {index < experience?.skills.length - 1 ? "," : ""}
                       </span>
                     ))
-                  : experience?.skills.slice(0, 5).map((skill, index) => (
+                  : experience?.skills.slice(0, 3).map((skill, index) => (
                       <span
                         key={index}
                         className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
                       >
                         {skill}
-                        {index < experience?.skills.slice(0, 5).length - 1
+                        {index < experience?.skills.slice(0, 3).length - 1
                           ? ","
                           : ""}
                       </span>
                     ))}
                 {!expandedItems[experience.id] &&
-                  experience?.skills.length > 5 && (
+                  experience?.skills.length > 3 && (
                     <span className="text-[16px] font-bold text-white sm:text-[14px]">
-                      and +{experience.skills.length - 5} more
+                      and +{experience.skills.length - 3} more
                     </span>
                   )}
+              </div>
+            </div>
+          )}
+
+          {experience.internship && (
+            <div
+              className={`mt-6 relative before:absolute before:left-[-116px] ${
+                expandedItems[experience.internship.id]
+                  ? "before:top-[-124px]"
+                  : "before:top-[-88px]"
+              } before:w-3 before:h-3 before:bg-[#454b52] before:rounded-full after:absolute after:left-[-116px] after:top-[28px] after:w-3 after:h-3 after:bg-[#454b52] after:rounded-full`}
+            >
+              {/* Timeline Line */}
+              <div
+                className={`absolute left-[-111px] ${
+                  expandedItems[experience.internship.id]
+                    ? "h-[124px] top-[-42px]"
+                    : "h-[92px] top-[-24px]"
+                } w-[1.5px] bg-[#454b52] -translate-y-1/2`}
+              ></div>
+
+              {/* Internship Section - Now Fully Responsive */}
+              <div className="flex flex-col sm:flex-column gap-6">
+                {/* Internship Image - Properly Positioned Under Dot */}
+                <div className="relative sm:static right-0 sm:right-auto top-0 sm:top-0 flex justify-center sm:justify-start">
+                  <img
+                    ref={imgRef}
+                    src={experience.internship.img}
+                    alt={experience.internship.company}
+                    className="h-16 w-16 sm:h-12 sm:w-12 bg-black shadow-lg object-cover"
+                    crossOrigin="anonymous"
+                  />
+                </div>
+
+                {/* Internship Details */}
+                <div className="relative">
+                  <div className="text-[18px] font-bold text-white sm:text-[16px]">
+                    {experience.internship.title}
+                  </div>
+                  <div className="text-[16px] font-medium text-[#E5E6E6] sm:text-[14px]">
+                    {experience.internship.company} •{" "}
+                    {experience.internship.employment_type}
+                  </div>
+                  <div className="text-[16px] font-medium text-[#A4A5A7] sm:text-[14px]">
+                    {experience.internship.duration.start_month}{" "}
+                    {experience.internship.duration.start_year} -{" "}
+                    {experience.internship.duration.end_month}{" "}
+                    {experience.internship.duration.end_year} •{" "}
+                    {calculateDuration(
+                      experience.internship.duration.start_month,
+                      experience.internship.duration.start_year,
+                      experience.internship.duration.end_month,
+                      experience.internship.duration.end_year
+                    )}
+                  </div>
+                  <div className="text-[16px] font-medium text-[#A4A5A7] sm:text-[14px]">
+                    {experience.internship.location} •{" "}
+                    {experience.internship.location_type}
+                  </div>
+                  <div className="w-full text-[14px] font-normal text-white mb-2 sm:text-[12px] relative">
+                    <motion.div
+                      className="w-full text-[14px] font-normal text-[#E5E6E6] relative"
+                      initial="collapsed"
+                      animate={
+                        expandedItems[experience.internship.id]
+                          ? "expanded"
+                          : "collapsed"
+                      }
+                      variants={{
+                        collapsed: { maxHeight: "5rem" },
+                        expanded: { maxHeight: "100%" },
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "circInOut",
+                      }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      {experience?.internship.description && (
+                        <span className="block overflow-hidden text-ellipsis mt-3">
+                          {expandedItems[experience.internship.id]
+                            ? experience?.internship.description
+                                .split("•")
+                                .filter((bullet) => bullet.trim())
+                                .map((bullet, index) => (
+                                  <span key={index} className="block">
+                                    • {bullet.trim()}
+                                  </span>
+                                ))
+                            : experience?.internship.description
+                                .split("•")
+                                .filter((bullet) => bullet.trim())
+                                .slice(0, 3)
+                                .map((bullet, index) => (
+                                  <span key={index} className="block">
+                                    • {bullet.trim()}
+                                  </span>
+                                ))}
+                          {!expandedItems[experience.internship.id] &&
+                            experience?.internship.description.split("•")
+                              .length > 3 && (
+                              <span className="text-[#A4A5A7]">
+                                ...see more
+                              </span>
+                            )}
+                        </span>
+                      )}
+                    </motion.div>
+
+                    {/* Show More / Show Less Button */}
+                    <div className="w-full flex justify-end lg:justify-start mt-2">
+                      <button
+                        onClick={() => handleToggle(experience.internship.id)}
+                        className="text-[#A4A5A7] text-[14px] font-medium lg:absolute lg:-bottom-4 lg:right-0"
+                      >
+                        {expandedItems[experience.internship.id]
+                          ? "show less"
+                          : "...see more"}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Internship Skills Section */}
+                  {experience?.internship.skills && (
+                    <div className="flex items-start gap-2 mt-6">
+                      <IoDiamondOutline color="white" className="mt-[2px]" />
+                      <div className="flex flex-wrap gap-2 items-center">
+                        {expandedItems[experience.internship.id]
+                          ? experience?.internship.skills.map(
+                              (skill, index) => (
+                                <span
+                                  key={index}
+                                  className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
+                                >
+                                  {skill}
+                                  {index <
+                                  experience?.internship.skills.length - 1
+                                    ? ","
+                                    : ""}
+                                </span>
+                              )
+                            )
+                          : experience?.internship.skills
+                              .slice(0, 3)
+                              .map((skill, index) => (
+                                <span
+                                  key={index}
+                                  className="text-[16px] font-bold text-white sm:text-[14px] flex items-center gap-1"
+                                >
+                                  {skill}
+                                  {index <
+                                  experience?.internship.skills.slice(0, 3)
+                                    .length -
+                                    1
+                                    ? ","
+                                    : ""}
+                                </span>
+                              ))}
+                        {!expandedItems[experience.internship.id] &&
+                          experience?.internship.skills.length > 3 && (
+                            <span className="text-[16px] font-bold text-white sm:text-[14px]">
+                              and +{experience.internship.skills.length - 3}{" "}
+                              more
+                            </span>
+                          )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           )}

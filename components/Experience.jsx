@@ -9,6 +9,8 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import { Titan_One } from "next/font/google";
 import { experiences } from "@/data/Experience";
+import Button from "./Button";
+import { useState } from "react";
 
 const titan = Titan_One({
   weight: "400",
@@ -31,6 +33,9 @@ const itemVariants = {
 };
 
 const Experience = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedExperiences = showAll ? experiences : experiences.slice(0, 3);
+
   return (
     <div
       id="experience"
@@ -54,7 +59,7 @@ const Experience = () => {
         </div>
 
         <Timeline className="w-full max-w-[1000px] flex flex-col items-center gap-6">
-          {experiences.map((experience, index) => (
+          {displayedExperiences.map((experience, index) => (
             <TimelineItem key={index}>
               <TimelineContent>
                 <motion.div
@@ -77,6 +82,12 @@ const Experience = () => {
             </TimelineItem>
           ))}
         </Timeline>
+        {/* Toggle Button */}
+        <Button
+          type="solid"
+          text={showAll ? "Show Less" : "Show More"}
+          onClickHandler={() => setShowAll(!showAll)}
+        />
       </div>
     </div>
   );
