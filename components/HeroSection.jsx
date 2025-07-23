@@ -30,8 +30,8 @@ const HeroSection = () => {
     setTimeout(() => {
       // Trigger file download and open the "Save As" dialog
       const link = document.createElement("a");
-      link.href = "/resume.pdf";
-      link.setAttribute("download", "Amrit_Resume.pdf");
+      link.href = "/resume.docx";
+      link.setAttribute("download", "Amrit_Resume.docx");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

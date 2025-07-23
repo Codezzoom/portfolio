@@ -1,106 +1,119 @@
 export const experiences = [
     {
         id: 0,
-        img: "https://media.licdn.com/dms/image/v2/D4E0BAQEgz81OaYYRWg/company-logo_200_200/company-logo_200_200/0/1720998581787?e=2147483647&v=beta&t=qqxjIYoOl1gzO5d8CaCEB7vG_qPjczQVNIWeJiqCo44",
-        title: "Software Engineer",
-        company: "Lasaria",
+        img: "https://media.licdn.com/dms/image/v2/C4D0BAQHFsVkm-0t4fA/company-logo_100_100/company-logo_100_100/0/1643414339445/unitedhealth_group_logo?e=1756339200&v=beta&t=_zupHI8u0tSeI7Hc7PBKbhilfAozvF67AZFxNTUkYUY",
+        title: "ReactJS Developer",
+        company: "UnitedHealth Group",
         employment_type: "Full-Time",
         duration: {
-            start_month: "Jan",
-            start_year: 2024,
-            end_month: null,
-            end_year: null,
+            start_month: "Jul",
+            start_year: 2022,
+            end_month: "Apr",
+            end_year: 2025,
         },
-        location: "Washington D.C.",
+        location: "Minnetonka, Minnesota",
         location_type: "Remote",
         skills: [
             "React.js",
-            "React Native",
-            "AWS",
-            "JSON Web Token (JWT)",
-            "Redis",
-            "Node.js",
-            "Express.js",
-            "Amazon Dynamodb",
-            "Tailwind CSS",
-            "Mapbox",
-            "JavaScript",
-            "Python",
+            "Gatsby.js",
+            "JavaScript (ES6+)",
+            "Axios",
+            "Cypress",
+            "Jest",
+            "Enzyme",
+            "GitLab",
+            "JIRA",
+            "Responsive design",
+            "Reusable components",
+            "Multi-language code rendering",
+            "Functional & integration testing",
+            "Version control",
+            "Agile collaboration",
+            "Documentation & onboarding support",
         ],
         description:
-            `• Developed a full-stack music streaming platform using React Native, and AWS (Cognito, DynamoDB, S3), optimizing user authentication and profile management.
-             • Implemented advanced UI for artist/listener profiles, featuring CRUD operations with 90% faster data retrieval and 35% improved user interaction.
-             • Created comprehensive dashboard analytics tracking follower metrics, top tracks, and geographical popularity for artists.
-             • Engineered social engagement features including dynamic post, live like/comment tracking, and real-time user interaction.
-             • Developed a secure authentication system using OAuth and JWT tokens, improving system efficiency by 40%.
-             • Designed scalable microservices architecture using Node.js and AWS Lambda, driving a 30% increase in user engagement.
-             • Utilized Figma for UI/UX design and Expo for cross-platform mobile development, ensuring seamless user experience.
+            `The Engineering Hub is a comprehensive web application designed to enhance productivity for engineers at Goldman Sachs. It serves as a central platform for onboarding developers, providing access to various platforms, products, and communities. Key features include:
+            • Spotlights: Access to the full report of the DevEX Annual Survey.
+            • Platforms: Exploration of various platforms and their offerings at Goldman Sachs.
+            • Products: Information on the latest development tools and products, including onboarding instructions and reference documentation.
+            • Happy Paths: Solutions for common engineering requests, architectural patterns, and integrated guides across platforms.
+            • Communities: A space for engineers to connect, share interests, and collaborate on improving their craft.
+            • Developed the application using Gatsby and React for optimal performance and
+            scalability.
+            • Created and maintained multiple components such as Home, Platform, Products,
+            and Spotlight pages.
+            • Designed responsive, reusable React components and standalone functions to
+            support future page development.
+            • Implemented a code converter feature to display multi-language code snippets
+            based on user selection.
+            • Integrated Axios for handling HTTP requests within the application.
+            • Automated functional testing using Cypress and conducted integration testing to
+            ensure high-quality code.
+            • Wrote unit tests using Jest and Enzyme, improving test coverage and code
+            reliability.
+            • Identified and resolved issues in the Gatsby pipeline, ensuring smooth build and
+            deployment processes.
+            • Managed version control using GitLab, regularly pushing updates and collaborating
+            with the team.
+            • Utilized JIRA for bug tracking, managing, and maintaining an organized history of
+            issues and tasks.
              `,
-        internship: {
-            id: 0,
-            img: "https://media.licdn.com/dms/image/v2/D4E0BAQEgz81OaYYRWg/company-logo_200_200/company-logo_200_200/0/1720998581787?e=2147483647&v=beta&t=qqxjIYoOl1gzO5d8CaCEB7vG_qPjczQVNIWeJiqCo44",
-            title: "Software Engineer",
-            company: "Lasaria",
-            employment_type: "Internship",
-            duration: {
-                start_month: "Sep",
-                start_year: 2023,
-                end_month: "Dec",
-                end_year: 2023,
-            },
-            location: "Washington D.C.",
-            location_type: "Remote",
-            skills: [
-                "React Native",
-                "JavaScript",
-                "Amazon Dynamodb",
-                "AWS",
-                "React.js",
-                "JSON Web Token (JWT)",
-                "Redis",
-                "Node.js",
-                "Express.js",
-                "Tailwind CSS",
-            ],
-            description:
-                `• Collaborated on cross-platform UI/UX design using Figma and Expo, ensuring consistent branding across mobile devices.
-                 • Integrated Cognito for role-based access control and improved profile management workflows.
-                 • Developed search and filter functionalities for an intuitive product discovery experience.
-                 • Contributed to CRUD operations for artist/listener profiles, reducing backend response time by 25%.
-                 `,
-        }
     },
     {
         id: 1,
-        img: "https://media.licdn.com/dms/image/v2/D4D0BAQGaAOss0xGXrw/company-logo_200_200/company-logo_200_200/0/1665398441036/wish_to_wear_logo?e=2147483647&v=beta&t=Se5tpsdzMT4dTVtFzN8Czo6sqahTTVQ7BT0v78lLKHM",
-        title: "Software Engineer",
-        company: "Wish To Wear",
-        employment_type: "Internship",
+        img: "https://media.licdn.com/dms/image/v2/D4E0BAQG9L7InIQVZrQ/company-logo_100_100/company-logo_100_100/0/1722506756452/goldman_sachs_logo?e=1756339200&v=beta&t=LqYbICgAX_w0JNQ8a5rcio1pjS967ph9gFyDIwADC7I",
+        title: "React Web and Native Developer",
+        company: "Goldman Sachs",
+        employment_type: "Full-Time",
         duration: {
-            start_month: "May",
-            start_year: 2023,
-            end_month: "Aug",
-            end_year: 2023,
+            start_month: "Mar",
+            start_year: 2020,
+            end_month: "July",
+            end_year: 2022,
         },
-        location: "Istanbul Türkiye",
+        location: "New York, United States",
         location_type: "Remote",
         skills: [
-            "React Native",
             "React.js",
-            "Tailwind CSS",
-            "Bootstrap (Framework)",
-            "Node.js",
-            "Express.js",
-            "Firebase",
-            "JavaScript",
-            "TypeScript",
+            "React Native",
+            "Redux",
+            "React Hooks",
+            "React Router / React Native Navigation",
+            "JavaScript(ES6 +)",
+            "Modular & reusable components",
+            "Lazy loading & code splitting",
+            "Google Maps API",
+            "Mapbox",
+            "Native APIs(Camera, GPS, Push Notifications)",
+            "GraphQL",
+            "REST APIs",
+            "Figma",
+            "AWS",
+            "Cross - platform mobile development",
+            "Performance optimization",
+            "State management",
+            "Accessibility & responsive design",
         ],
         description:
-            `• Developed responsive web and mobile UIs for (W2W), and eCommerce for clothing rentals using React Native, React.
-             • Integrated dynamic pricing, rental scheduling, and inventory management to enhance the user experience.
-             • Improved website performance by 45%, optimizing API calls, lazy loading, and UI rendering.
-             • Implemented Stripe for secure payments and Firebase authentication, improving checkout flow and.
-        `,
+            `• Designed scalable, high-performance web applications with React.js, ensuring cross-browser and device compatibility.
+             • Utilized React Hooks, Redux for state management, and React Router for navigation to optimize performance.
+             • Implemented performance enhancements like lazy loading and code splitting to reduce load times.
+             • Integrated third-party APIs to improve user experience, including AI-powered search and dynamic data fetching.
+             • Created reusable, modular React components to speed up development and maintain consistency.
+             • Developed and maintained cross-platform React Native apps for iOS and Android, optimizing performance and accessibility.
+             • Led the creation of custom UI components, integrated native modules, and ensured platform-specific optimizations.
+             • Utilized React Native Navigation for smooth transitions and deep linking across platforms.
+             • Integrated native APIs (camera, GPS, push notifications) for location-based services and real-time alerts.
+             • Addressed performance issues, including memory leaks, through efficient state management and re-rendering optimization.
+             • Collaborated with the design team using Figma to ensure UI fidelity to design mockups.
+             • Led the integration of Mapbox into both React Native and web apps, developing custom libraries to meet business needs.
+             • Implemented location services, collaborating with backend and AWS teams for geolocation and routing functionalities.
+             • Integrated Google Maps into both React Native and web apps, enabling interactive map views for provider searches and real-time navigation.
+             • Used the Google Maps API to enhance features like search result markers, location tracking, and optimized routing.
+             • Worked with backend teams to integrate GraphQL queries and mutations for efficient data handling.
+             • Collaborated with AWS teams to integrate cloud services, ensuring scalability and reliability.
+             • Partnered with design teams to create user-centric UI components using Figma for both React Native and web apps.
+            `,
     },
     {
         id: 2,
@@ -110,9 +123,9 @@ export const experiences = [
         employment_type: "Part-time",
         duration: {
             start_month: "Aug",
-            start_year: 2020,
+            start_year: 2018,
             end_month: "Feb",
-            end_year: 2023,
+            end_year: 2020,
         },
         location: "Yuba City, CA",
         location_type: "On-site",
@@ -128,36 +141,6 @@ export const experiences = [
         • Provided friendly and professional customer service during pickups, addressing customer needs and resolving any issues promptly.
         • Worked collaboratively with team members to meet daily order targets and maintain smooth operations under strict deadlines.
         • Ensured a seamless shopping experience by maintaining attention to detail and prioritizing customer satisfaction.
-        `,
-    },
-    {
-        id: 3,
-        img: "https://yc.yccd.edu/athletics/wp-content/uploads/sites/2/2017/06/YubaCollege-Logo.png",
-        title: "Math Tutor",
-        company: "Yuba College",
-        employment_type: "Part-time",
-        duration: {
-            start_month: "Jan",
-            start_year: 2019,
-            end_month: "Dec",
-            end_year: 2019,
-        },
-        location: "Marysville, CA",
-        location_type: "On-site",
-        skills: [
-            "Mathematics",
-            "Linear Algebra",
-            "Trignometry",
-            "Calculus",
-            "Statistics",
-        ],
-        description:
-            `
-        • Provided one-on-one and group tutoring sessions to students in algebra, calculus, and statistics, tailoring explanations to meet individual learning styles and academic needs.
-        • Simplified challenging math concepts by breaking them down into easy-to-understand steps, helping students grasp difficult topics and solve problems effectively.
-        • Worked closely with students to improve their confidence in math by practicing problem-solving strategies and developing study techniques.
-        • Collaborated with faculty to ensure tutoring sessions aligned with course objectives, providing consistent and relevant support for students.
-        • Fostered a positive and inclusive learning environment, encouraging students to ask questions, stay engaged, and build skills for long-term academic success.
         `,
     },
 ];
