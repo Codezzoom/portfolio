@@ -1,7 +1,7 @@
 export const experiences = [
     {
         id: 0,
-        img: "https://media.licdn.com/dms/image/v2/C4D0BAQHFsVkm-0t4fA/company-logo_100_100/company-logo_100_100/0/1643414339445/unitedhealth_group_logo?e=1756339200&v=beta&t=_zupHI8u0tSeI7Hc7PBKbhilfAozvF67AZFxNTUkYUY",
+        img: "/Experience/UnitedHealthGroup.jpeg",
         title: "ReactJS Developer",
         company: "UnitedHealth Group",
         employment_type: "Full-Time",
@@ -61,7 +61,7 @@ export const experiences = [
     },
     {
         id: 1,
-        img: "https://media.licdn.com/dms/image/v2/D4E0BAQG9L7InIQVZrQ/company-logo_100_100/company-logo_100_100/0/1722506756452/goldman_sachs_logo?e=1756339200&v=beta&t=LqYbICgAX_w0JNQ8a5rcio1pjS967ph9gFyDIwADC7I",
+        img: "/Experience/GoldmanSachs.jpeg",
         title: "React Web and Native Developer",
         company: "Goldman Sachs",
         employment_type: "Full-Time",
@@ -117,7 +117,7 @@ export const experiences = [
     },
     {
         id: 2,
-        img: "https://latn.com/wp-content/uploads/2014/12/walmart-logo-vector.png",
+        img: "/Experience/Walmart.jpeg",
         title: "Retail Associate",
         company: "Walmart",
         employment_type: "Part-time",
